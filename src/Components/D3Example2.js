@@ -1,89 +1,145 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import {miserables} from '../Assets/json/data';
+import {data} from '../Assets/json/data';
 import '../Styles/D3Two.css';
 
 export default class exampleTwo extends Component {
     componentDidMount() {
-        const canvas = d3.select("canvas").call(d3.zoom().scaleExtent([1, 8]).on("zoom", zoom)),
-            context = canvas.node().getContext("2d"),
-            width = canvas.property("width"),
-            height = canvas.property("height");
+        let radius = 5;
 
-        const randomX = d3.randomNormal(width / 2, 80),
-            randomY = d3.randomNormal(height / 2, 80),
-            data = d3.range(2000).map(function () {
-                return [randomX(), randomY()];
-            });
-        const simulation = d3.forceSimulation()
-            .force("link", d3.forceLink().id(function (d) {
+        let defaultNodeCol = "white",
+            highlightCol = "yellow";
+
+        let height = window.innerHeight;
+        let graphWidth = window.innerWidth;
+
+        let graphCanvas = d3.select('#graphDiv').append('canvas')
+            .attr('width', graphWidth + 'px')
+            .attr('height', height + 'px')
+            .node();
+
+        let context = graphCanvas.getContext('2d');
+
+        let div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+
+        let simulation = d3.forceSimulation()
+            .force("center", d3.forceCenter(graphWidth / 2, height / 2))
+            .force("x", d3.forceX(graphWidth / 2).strength(0.1))
+            .force("y", d3.forceY(height / 2).strength(0.1))
+            .force("charge", d3.forceManyBody().strength(-50))
+            .force("link", d3.forceLink().strength(1).id(function (d) {
                 return d.id;
             }))
-            .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter());
+            .alphaTarget(0)
+            .alphaDecay(0.05)
 
-        simulation
-            .nodes(miserables.nodes)
-            .on("tick", ticked);
+        let transform = d3.zoomIdentity;
 
-        simulation.force("link")
-            .links(miserables.links);
+        console.log(data)
 
-        function ticked() {
-            context.clearRect(0, 0, width, height);
-            context.save();
-            context.translate(width / 2, height / 2 + 40);
+        initGraph(data)
 
-            context.beginPath();
-            miserables.links.forEach(drawLink);
-            context.strokeStyle = "#aaa";
-            context.stroke();
+        function initGraph(tempData) {
 
-            context.beginPath();
-            miserables.nodes.forEach(drawNode);
-            context.fill();
-            context.strokeStyle = "#fff";
-            context.stroke();
 
-            context.restore();
-        };
-
-        function drawLink(d) {
-            context.moveTo(d.source.x, d.source.y);
-            context.lineTo(d.target.x, d.target.y);
-        }
-
-        function drawNode(d) {
-            context.moveTo(d.x + 3, d.y);
-            context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-        }
-
-        function zoom() {
-            const transform = d3.event.transform;
-            context.save();
-            context.clearRect(0, 0, width, height);
-            context.translate(transform.x, transform.y);
-            context.scale(transform.k, transform.k);
-            draw();
-            context.restore();
-        }
-
-        function draw() {
-            let i = -1, n = data.length, d;
-            context.beginPath();
-            while (++i < n) {
-                d = data[i];
-                context.moveTo(d[0], d[1]);
-                context.arc(d[0], d[1], 2.5, 0, 2 * Math.PI);
+            function zoomed() {
+                console.log("zooming")
+                transform = d3.event.transform;
+                simulationUpdate();
             }
-            context.fill();
+
+            d3.select(graphCanvas)
+                .call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end", dragended))
+                .call(d3.zoom().scaleExtent([1 / 10, 8]).on("zoom", zoomed))
+
+
+            function dragsubject() {
+                let i,
+                    x = transform.invertX(d3.event.x),
+                    y = transform.invertY(d3.event.y),
+                    dx,
+                    dy;
+                for (i = tempData.nodes.length - 1; i >= 0; --i) {
+                    let node = tempData.nodes[i];
+                    dx = x - node.x;
+                    dy = y - node.y;
+
+                    if (dx * dx + dy * dy < radius * radius) {
+
+                        node.x = transform.applyX(node.x);
+                        node.y = transform.applyY(node.y);
+
+                        return node;
+                    }
+                }
+            }
+
+
+            function dragstarted() {
+                if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+                d3.event.subject.fx = transform.invertX(d3.event.x);
+                d3.event.subject.fy = transform.invertY(d3.event.y);
+            }
+
+            function dragged() {
+                d3.event.subject.fx = transform.invertX(d3.event.x);
+                d3.event.subject.fy = transform.invertY(d3.event.y);
+
+            }
+
+            function dragended() {
+                if (!d3.event.active) simulation.alphaTarget(0);
+                d3.event.subject.fx = null;
+                d3.event.subject.fy = null;
+            }
+
+            simulation.nodes(tempData.nodes)
+                .on("tick", simulationUpdate);
+
+            simulation.force("link")
+                .links(tempData.edges);
+
+
+            function render() {
+
+            }
+
+            function simulationUpdate() {
+                context.save();
+
+                context.clearRect(0, 0, graphWidth, height);
+                context.translate(transform.x, transform.y);
+                context.scale(transform.k, transform.k);
+
+                tempData.edges.forEach(function (d) {
+                    context.beginPath();
+                    context.moveTo(d.source.x, d.source.y);
+                    context.lineTo(d.target.x, d.target.y);
+                    context.stroke();
+                });
+
+                // Draw the nodes
+                tempData.nodes.forEach(function (d, i) {
+
+                    context.beginPath();
+                    context.arc(d.x, d.y, radius, 0, 2 * Math.PI, true);
+                    context.fillStyle = d.col ? "red" : "black"
+                    context.fill();
+                });
+
+                context.restore();
+//        transform = d3.zoomIdentity;
+            }
         }
     }
 
     render() {
         return (
             <div className="container">
-                < canvas width={900} height={500}/>
+                <div id="graphDiv"/>
             </div>
         );
     }
