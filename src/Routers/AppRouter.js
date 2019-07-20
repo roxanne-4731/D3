@@ -1,9 +1,9 @@
 import React from "react";
 import {BrowserRouter, NavLink, Route, Switch} from "react-router-dom";
-import App from '../Components/App';
-import D3 from '../Components/D3';
-import Cytoscape from '../Components/Cytoscape';
-import Test from '../Components/test';
+import App from '../Pages/App';
+import D3 from '../Pages/D3';
+import Cytoscape from '../Components/Cytoscape/Cytoscape';
+import Test from '../Pages/test';
 
 import '../Styles/index.css';
 import '../Styles/Router.css';

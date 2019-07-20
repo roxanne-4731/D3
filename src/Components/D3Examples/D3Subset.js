@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import '../Styles/D3Three.css';
+import '../../Styles/D3Three.css';
 
 export default class exampleThree extends Component {
     componentDidMount() {

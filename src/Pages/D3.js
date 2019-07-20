@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import D3ExampleOne from './D3Examples';
-import D3ExampleTwo from './D3Example2';
-import D3ExampleThree from './D3Example3';
-import D3ExampleFoure from './D3Example4';
-import D3ExampleFive from './D3Example5';
+import D3ExampleOne from '../Components/D3Examples/D3TooltipHtml';
+import D3ExampleTwo from '../Components/D3Examples/D3Canvas';
+import D3ExampleThree from '../Components/D3Examples/D3Subset';
+import D3ExampleFoure from '../Components/D3Examples/D3TooltipSvg';
+import D3ExampleFive from '../Components/D3Examples/D3Zoom&Drag';
 
 import '../Styles/D3Base.css';
 

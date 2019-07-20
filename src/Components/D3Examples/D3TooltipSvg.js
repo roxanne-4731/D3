@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import '../Styles/D3Foure.css';
+import '../../Styles/D3Foure.css';
 import axios from 'axios';
 
 const DATA_URL = 'https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json';

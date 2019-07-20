@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import '../Styles/D3Five.css';
+import '../../Styles/D3Five.css';
 
 export default class Example5 extends Component {
     componentDidMount() {

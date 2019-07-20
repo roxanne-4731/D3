@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import {data} from '../Assets/json/data';
-import '../Styles/D3Two.css';
+import {data} from '../../Assets/json/data';
+import '../../Styles/D3Two.css';
 
 export default class exampleTwo extends Component {
     componentDidMount() {
         let radius = 5;
-
-        let defaultNodeCol = "white",
-            highlightCol = "yellow";
 
         let height = window.innerHeight;
         let graphWidth = window.innerWidth;
@@ -34,26 +31,24 @@ export default class exampleTwo extends Component {
                 return d.id;
             }))
             .alphaTarget(0)
-            .alphaDecay(0.05)
+            .alphaDecay(0.05);
 
         let transform = d3.zoomIdentity;
 
-        console.log(data)
-
-        initGraph(data)
+        initGraph(data);
 
         function initGraph(tempData) {
 
 
             function zoomed() {
-                console.log("zooming")
+                console.log("zooming");
                 transform = d3.event.transform;
                 simulationUpdate();
             }
 
             d3.select(graphCanvas)
                 .call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end", dragended))
-                .call(d3.zoom().scaleExtent([1 / 10, 8]).on("zoom", zoomed))
+                .call(d3.zoom().scaleExtent([1 / 10, 8]).on("zoom", zoomed));
 
 
             function dragsubject() {
@@ -76,7 +71,6 @@ export default class exampleTwo extends Component {
                     }
                 }
             }
-
 
             function dragstarted() {
                 if (!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -102,11 +96,6 @@ export default class exampleTwo extends Component {
             simulation.force("link")
                 .links(tempData.edges);
 
-
-            function render() {
-
-            }
-
             function simulationUpdate() {
                 context.save();
 
@@ -126,7 +115,7 @@ export default class exampleTwo extends Component {
 
                     context.beginPath();
                     context.arc(d.x, d.y, radius, 0, 2 * Math.PI, true);
-                    context.fillStyle = d.col ? "red" : "black"
+                    context.fillStyle = d.col ? "red" : "black";
                     context.fill();
                 });
 
