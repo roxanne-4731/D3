@@ -1,0 +1,11 @@
+.is-active {
+    font-weight: bold;
+}
+.nav-item {
+    padding: 20px
+}
+
+.header-style {
+    background-color: #6b1a1a;
+    padding: 20px;
+}

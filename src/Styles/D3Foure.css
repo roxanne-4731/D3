@@ -1,0 +1,49 @@
+
+body {
+    background: #333;
+    padding-top: 20px;
+    background: linear-gradient(to top, #555, #333);
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+h1 {
+    font-size: 2em;
+    color: #eee;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+a {
+    color: white;
+}
+
+p {
+    margin-top: 1em;
+    text-align: center;
+    color: #aaa;
+}
+
+.container {
+    border-radius: 5px;
+    border: 1px solid #222;
+    box-shadow: 0 5px 15px #333;
+    background: white;
+    text-align: center;
+}
+
+.d3-graphic {
+    margin: 0 auto;
+    display: block;
+}
+
+.d3-line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.d3-node {
+    stroke: #999;
+    stroke-width: 1.5px;
+    width: 16px;
+    height: 11px;
+}

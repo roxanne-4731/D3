@@ -1,0 +1,28 @@
+.buttonStyle {
+    background-color: #b18787;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    color: #e5e5e5;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container-style {
+    width: 100%;
+    height: 100%
+}
+
+.layout-style {
+    display: flex;
+    padding: 20px
+}
+
+.buttons-style{
+    display: flex;
+    flex-direction: column;
+}
+.title-style {
+    text-align: center;
+    color: #fff;
+}
