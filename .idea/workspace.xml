@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97eee2eb-25e8-4cd0-8ecd-95d11288cbcf" name="Default Changelist" comment="">
+    <list default="true" id="97eee2eb-25e8-4cd0-8ecd-95d11288cbcf" name="Default Changelist" comment="[NetWork_Graph] Structuring Project">
+      <change afterPath="$PROJECT_DIR$/src/js/D3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3Example2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3Example3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3Subset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3Example4.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3TooltipSvg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3Example5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/D3Examples.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3TooltipHtml.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routers/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routers/AppRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/json/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/json/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,49 +18,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Canvas.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assets/json/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3772">
-              <caret line="803" column="2" selection-start-line="803" selection-start-column="2" selection-end-line="803" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/D3Two.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/D3.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-128">
-              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="713">
+              <caret line="825" column="46" lean-forward="true" selection-start-line="825" selection-start-column="46" selection-end-line="825" selection-end-column="46" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#75#2625#0" />
+                <element signature="e#2681#2771#0" />
+                <element signature="e#2805#3104#0" />
+                <element signature="e#3127#47376#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Subset.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="233" column="39" selection-start-line="233" selection-start-column="39" selection-end-line="233" selection-end-column="39" />
+            <state relative-caret-position="439">
+              <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -77,41 +49,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>font</find>
-      <find>#2d3f50</find>
-      <find>ME</find>
-      <find>edge2</find>
-      <find>Alice</find>
-      <find>miserables</find>
-      <find>tick</find>
-      <find>div</find>
-      <find>rect</find>
-      <find>title</find>
-      <find>mouse</find>
-      <find>tooltip</find>
-      <find>canvas</find>
-      <find>dragStart</find>
       <find>d</find>
-      <find>drag</find>
       <find>ticked</find>
       <find>zoomed</find>
       <find>tra</find>
-      <find>graphic</find>
       <find>margin</find>
       <find>container</find>
       <find>container-style</find>
       <find>draw</find>
-      <find>zoom</find>
       <find>height</find>
       <find>var</find>
       <find>var</find>
-      <find>data</find>
       <find>nodes</find>
+      <find>svg</find>
+      <find>wif</find>
+      <find>800</find>
+      <find>graphic</find>
+      <find>drag</find>
+      <find>node</find>
+      <find>dragStart</find>
+      <find>data</find>
+      <find>zoom</find>
+      <find>cus</find>
+      <find>custome</find>
+      <find>circle</find>
+      <find>selectNode</find>
+      <find>index</find>
+      <find>custom</find>
+      <find>getNodeColor</find>
+      <find>console</find>
+      <find>getNeighbors</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
       <replace>let</replace>
       <replace>miserables</replace>
+      <replace>custom</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -141,9 +114,11 @@
         <option value="$PROJECT_DIR$/src/Components/D3Example3.js" />
         <option value="$PROJECT_DIR$/src/Components/D3.js" />
         <option value="$PROJECT_DIR$/src/Styles/D3Two.css" />
-        <option value="$PROJECT_DIR$/src/Assets/json/data.js" />
         <option value="$PROJECT_DIR$/src/Components/D3Example2.js" />
         <option value="$PROJECT_DIR$/src/Components/D3Examples/D3Canvas.js" />
+        <option value="$PROJECT_DIR$/src/js/D3.js" />
+        <option value="$PROJECT_DIR$/src/Assets/json/data.js" />
+        <option value="$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js" />
       </list>
     </option>
   </component>
@@ -175,7 +150,14 @@
               <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
               <item name="chartjs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -195,11 +177,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Pages" />
       <recent name="$PROJECT_DIR$/src/Components" />
       <recent name="$PROJECT_DIR$/src/Components/D3Examples" />
       <recent name="$PROJECT_DIR$/src/Components/Cytoscape" />
       <recent name="$PROJECT_DIR$/src/Components/Test" />
-      <recent name="$PROJECT_DIR$/src/Styles" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -230,7 +212,7 @@
       <workItem from="1563166462324" duration="21867000" />
       <workItem from="1563251052637" duration="20762000" />
       <workItem from="1563356662847" duration="10999000" />
-      <workItem from="1563597672322" duration="18048000" />
+      <workItem from="1563597672322" duration="36511000" />
     </task>
     <task id="LOCAL-00001" summary="[NetWork_Graph] add Zoom and Drag event in canvas form of D3">
       <created>1563620696588</created>
@@ -239,11 +221,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563620696588</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[NetWork_Graph] Structuring Project">
+      <created>1563624277601</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563624277601</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107247000" />
+    <option name="totallyTimeSpent" value="125710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,16 +251,16 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928178" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973643" weight="0.3296582" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" visible="true" weight="0.21767956" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" visible="true" weight="0.15690608" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002636" side_tool="true" weight="0.3447514" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4960464" weight="0.4320442" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4960464" weight="0.42651933" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -282,18 +271,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[NetWork_Graph] add Zoom and Drag event in canvas form of D3" />
-    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] add Zoom and Drag event in canvas form of D3" />
+    <MESSAGE value="[NetWork_Graph] Structuring Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] Structuring Project" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -313,13 +294,6 @@
     <entry file="file://$PROJECT_DIR$/src/Styles/App.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/Cytoscape.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -327,7 +301,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Cytoscape.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/Cytoscape/Cytoscape.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="14" selection-start-line="18" selection-start-column="22" selection-end-line="23" selection-end-column="14" />
@@ -348,7 +322,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Test/test.js">
+    <entry file="file://$PROJECT_DIR$/src/Pages/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="58" column="8" lean-forward="true" selection-start-line="58" selection-start-column="8" selection-end-line="65" selection-end-column="15" />
@@ -373,16 +347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="103" selection-start-line="103" selection-end-line="103" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -431,28 +395,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3TooltipSvg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8606">
-          <caret line="380" column="37" selection-start-line="380" selection-start-column="28" selection-end-line="380" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/D3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-128">
-          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Subset.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -464,20 +408,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pages/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pages/D3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/D3Two.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assets/json/data.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3772">
-          <caret line="803" column="2" selection-start-line="803" selection-start-column="2" selection-end-line="803" selection-end-column="2" />
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="256">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/D3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2392">
+          <caret line="104" column="1" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3TooltipSvg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="56" column="6" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assets/json/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="825" column="46" lean-forward="true" selection-start-line="825" selection-start-column="46" selection-end-line="825" selection-end-column="46" />
+          <folding>
+            <element signature="e#75#2625#0" />
+            <element signature="e#2681#2771#0" />
+            <element signature="e#2805#3104#0" />
+            <element signature="e#3127#47376#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/D3Examples/D3Zoom&amp;Drag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

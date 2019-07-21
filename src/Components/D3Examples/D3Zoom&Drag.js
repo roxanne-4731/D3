@@ -1,81 +1,90 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
 import '../../Styles/D3Five.css';
+import {custom} from '../../Assets/json/data';
 
 export default class Example5 extends Component {
+
     componentDidMount() {
-        const margin = {top: -5, right: -5, bottom: -5, left: -5};
+        // Select svg and it's height and width
+        const graphic = d3.select("svg"),
+            width = +graphic.attr("width"),
+            height = +graphic.attr("height");
 
-        const data = {
-            nodes: [{id: 1, name: 'CSS', group: 1}, {id: 2, name: 'HTML', group: 1}, {
-                id: 3,
-                name: 'JS',
-                group: 1
-            }, {id: 4, name: 'SCSS', group: 2}],
-            links: [{source: 1, target: 2}, {source: 1, target: 3}, {source: 2, target: 3}, {source: 4, target: 2}]
-        };
-
-        let zoom = d3.zoom()
-            .scaleExtent([1, 10])
-            .on("zoom", zoomed);
-
-        let graphic = d3.select("svg")
-            .style("color", "black")
-            .style("background-color", "white")
-            .attr("width", 800)
-            .attr("height", 800)
-            .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
-            .call(zoom);
-        // const tooltip = d3.select('.container')
-        //     .append('div')
-        //     .attr('class', 'tooltip')
-        //     .html('Tooltip');
-
-        let simulation = d3.forceSimulation()
-            .force("charge", d3.forceManyBody().strength(-200))
-            .force("link", d3.forceLink().id(function (d) {
-                return d.id;
-            }).distance(40))
-            .force("x", d3.forceX(800 / 2))
-            .force("y", d3.forceY(800 / 2))
+        const simulation = d3.forceSimulation(custom.nodes)
+            .force("charge", d3.forceManyBody().strength(-20))
+            .force("link", d3.forceLink(custom.links).id(function (d) {
+                return d.id
+            }).distance(200))
+            .force("x", d3.forceX(width / 2))
+            .force("y", d3.forceY(height / 2))
             .on("tick", ticked);
 
-        let link = graphic.selectAll(".link"),
-            node = graphic.selectAll(".node");
+        const dragStart = d => {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        };
 
-        simulation.nodes(data.nodes);
-        simulation.force("link").links(data.links);
+        const drag = d => {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        };
 
-        link = link
-            .data(data.links)
+        const dragEnd = d => {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        };
+
+        const link = graphic.selectAll(".link")
+            .data(custom.links)
             .enter().append("line")
             .attr("class", "link");
 
-        node = node
-            .data(data.nodes)
+        const node = graphic.selectAll(".node")
+            .data(custom.nodes)
             .enter().append("circle")
             .attr("class", "node")
-            .attr("r", 6)
+            .attr("cx", function (d) {
+                return d.x
+            })
+            .attr("cy", function (d) {
+                return d.y
+            })
+            .attr("r", 4)
             .style("fill", function (d) {
-                return d.id;
-            }).on('mouseover', d => {
-                console.log(d.name);
-                // tooltip.html(d.country)
-                //     .style('left', d3.event.pageX + 5 + 'px')
-                //     .style('top', d3.event.pageY + 5 + 'px')
-                //     .style('opacity', .9);
-            });
+                return d.id
+            })
+            .on('click', selectNode)
+            .call(d3.drag()
+                .on('start', dragStart)
+                .on('drag', drag)
+                .on('end', dragEnd));
+
+        const textElements = graphic.append('g')
+            .selectAll('text')
+            .data(custom.nodes)
+            .enter().append('text')
+            .text(node => node.label)
+            .attr('font-size', 10)
+            .attr('dx', 15)
+            .attr('dy', 4);
 
         node.append("title")
             .text(function (d) {
                 return d.name;
             });
 
-        function ticked() {
+        graphic.call(d3.zoom()
+            .scaleExtent([1 / 2, 8])
+            .on("zoom", zoomed));
 
-            link.attr("x1", function (d) {
-                return d.source.x;
-            })
+        function ticked() {
+            link
+                .attr("x1", function (d) {
+                    return d.source.x;
+                })
                 .attr("y1", function (d) {
                     return d.source.y;
                 })
@@ -85,24 +94,76 @@ export default class Example5 extends Component {
                 .attr("y2", function (d) {
                     return d.target.y;
                 });
-
-            node.attr("cx", function (d) {
-                return d.x;
-            })
+            node
+                .attr("cx", function (d) {
+                    return d.x;
+                })
                 .attr("cy", function (d) {
                     return d.y;
                 });
+            textElements
+                .attr('x', function (d) {
+                    return d.x
+                }).attr('y', function (d) {
+                return d.y;
+            })
         }
 
         function zoomed() {
-            graphic.attr("transform", d3.event.transform);
+            node.attr("transform", d3.event.transform);
+            link.attr("transform", d3.event.transform);
         }
+
+        function getNeighbors(node) {
+            return custom.links.reduce((neighbors, link) => {
+                console.log(' neighbor && Links ===> ', neighbors);
+                if (link.target.id === node.id) {
+                    neighbors.push(link.source.id)
+                } else if (link.source.id === node.id) {
+                    neighbors.push(link.target.id)
+                }
+                return neighbors
+            }, [node.id])
+        }
+
+        function isNeighborLink(node, link) {
+            return link.target.id === node.id || link.source.id === node.id
+        }
+
+        function getNodeColor(node, neighbors) {
+            console.log('indexOf ::: ', neighbors.indexOf(node.id));
+            if (neighbors.indexOf(node.id)) {
+                return node.level === 1 ? 'blue' : 'green'
+            }
+            return node.level === 1 ? 'red' : 'gray'
+        }
+
+        function getTextColor(node, neighbors) {
+            return neighbors.indexOf(node.id) ? 'green' : 'black'
+        }
+
+        function getLinkColor(node, link) {
+            return isNeighborLink(node, link) ? 'green' : '#E5E5E5'
+        }
+
+        function selectNode(selectedNode) {
+            console.log('selectedNode ::: ', selectedNode);
+
+            const neighbors = getNeighbors(selectedNode);
+            node
+                .attr('fill', node => getNodeColor(node, neighbors));
+            textElements
+                .attr('fill', node => getTextColor(node, neighbors));
+            link
+                .attr('stroke', link => getLinkColor(selectedNode, link));
+        }
+
     }
 
     render() {
         return (
             <div className="container">
-                <svg className="d3-graphic" ref="d3Graphic"/>
+                <svg className="d3-graphic" width="960" height="500" ref="d3Graphic"/>
             </div>
         )
     }

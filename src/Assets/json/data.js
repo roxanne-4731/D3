@@ -802,3 +802,27 @@ export const data = {
         "target": 660
     }, {"source": 820, "target": 932}, {"source": 726, "target": 573}]
 };
+
+export const custom = {
+    nodes: [
+        {id: 1, name: 'CSS', group: 1, label: 'CSS', level: 1},
+        {id: 2, name: 'HTML', group: 2, label: 'HTML', level: 2},
+        {id: 3, name: 'JS', group: 2, label: 'JS', level: 2},
+        {id: 4, name: 'SCSS', group: 2, label: 'SCSS', level: 1},
+        {id: 5, name: 'VueJS', group: 3, label: 'VueJS', level: 2},
+        {id: 6, name: 'React', group: 1, label: 'React', level: 1},
+        {id: 7, name: 'DB', group: 2, label: 'DB', level: 2},
+        {id: 8, name: 'Native', group: 3, label: 'Native', level: 1}
+    ],
+    links: [
+        {source: 1, target: 2, strength: 0.7},
+        {source: 1, target: 3, strength: 0.7},
+        {source: 2, target: 4, strength: 0.7},
+        {source: 2, target: 5, strength: 0.7},
+        {source: 3, target: 6, strength: 0.7},
+        {source: 3, target: 7, strength: 0.7},
+        {source: 4, target: 8, strength: 0.7},
+        {source: 5, target: 8, strength: 0.7},
+        {source: 6, target: 7, strength: 0.7},
+    ]
+};
