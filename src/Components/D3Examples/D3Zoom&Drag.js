@@ -113,6 +113,7 @@ export default class Example5 extends Component {
         function zoomed() {
             node.attr("transform", d3.event.transform);
             link.attr("transform", d3.event.transform);
+            textElements.attr('transform', d3.event.transform)
         }
 
         function getNeighbors(node) {
