@@ -54,9 +54,6 @@ export default class Example5 extends Component {
                 return d.y
             })
             .attr("r", 4)
-            .style("fill", function (d) {
-                return d.id
-            })
             .on('click', selectNode)
             .call(d3.drag()
                 .on('start', dragStart)
@@ -132,14 +129,15 @@ export default class Example5 extends Component {
         }
 
         function getNodeColor(node, neighbors) {
-            if (neighbors.indexOf(node.id)) {
-                return node.level === 1 ? 'blue' : 'green'
-            }
-            return node.level === 1 ? 'red' : 'gray'
+            // if (neighbors.indexOf(node.id)) {
+            //     return node.level === 1 ? 'blue' : 'green'
+            // }
+            // return node.level === 1 ? 'red' : 'gray'
+            return neighbors.indexOf(node.id) !==  -1 ? 'green' : 'black'
         }
 
         function getTextColor(node, neighbors) {
-            return neighbors.indexOf(node.id) ? 'green' : 'black'
+            return neighbors.indexOf(node.id) !==  -1 ? 'green' : 'black'
         }
 
         function getLinkColor(node, link) {
