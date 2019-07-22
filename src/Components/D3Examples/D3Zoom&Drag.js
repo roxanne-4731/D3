@@ -40,7 +40,8 @@ export default class Example5 extends Component {
         const link = graphic.selectAll(".link")
             .data(custom.links)
             .enter().append("line")
-            .attr("class", "link");
+            .attr("class", "link")
+            .attr('stroke', '#E5E5E5');
 
         const node = graphic.selectAll(".node")
             .data(custom.nodes)
@@ -116,7 +117,6 @@ export default class Example5 extends Component {
 
         function getNeighbors(node) {
             return custom.links.reduce((neighbors, link) => {
-                console.log(' neighbor && Links ===> ', neighbors);
                 if (link.target.id === node.id) {
                     neighbors.push(link.source.id)
                 } else if (link.source.id === node.id) {
@@ -131,7 +131,6 @@ export default class Example5 extends Component {
         }
 
         function getNodeColor(node, neighbors) {
-            console.log('indexOf ::: ', neighbors.indexOf(node.id));
             if (neighbors.indexOf(node.id)) {
                 return node.level === 1 ? 'blue' : 'green'
             }
@@ -147,8 +146,6 @@ export default class Example5 extends Component {
         }
 
         function selectNode(selectedNode) {
-            console.log('selectedNode ::: ', selectedNode);
-
             const neighbors = getNeighbors(selectedNode);
             node
                 .attr('fill', node => getNodeColor(node, neighbors));
