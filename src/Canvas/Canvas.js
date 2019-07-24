@@ -88,7 +88,6 @@ export default class Canvas {
         this.context.clearRect(0, 0, this.graphWidth, this.height);
         this.context.translate(this.transform.x, this.transform.y);
         this.context.scale(this.transform.k, this.transform.k);
-        debugger;
         this.data.edges.forEach( (d) => {
             this.context.beginPath();
             this.context.moveTo(d.source.x, d.source.y);
