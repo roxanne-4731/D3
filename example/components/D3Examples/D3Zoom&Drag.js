@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import '../../Styles/D3Five.css';
-import {custom} from '../../Assets/json/data';
+import '../../assets/styles/D3Five.css';
+import {custom} from '../../../example/assets/json/data';
 
 export default class Example5 extends Component {
 

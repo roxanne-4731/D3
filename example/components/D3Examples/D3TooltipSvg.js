@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
-import '../../Styles/D3Foure.css';
+import '../../assets/styles/D3Foure.css';
 import axios from 'axios';
 
 const DATA_URL = 'https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json';
@@ -295,7 +295,7 @@ export default class ExampleFoure extends Component {
                 .attr('height', 176);
         });
         //
-        // let color = d3.scaleOrdinal(d3.schemeCategory10);
+        // let color = networkGraph.scaleOrdinal(networkGraph.schemeCategory10);
         //
         axios.get(DATA_URL).then((response) => {
             let data = response.data;
@@ -307,10 +307,10 @@ export default class ExampleFoure extends Component {
 
             force.force('link').links(data.links);
 
-            let link = graphic.selectAll(".d3-line")
+            let link = graphic.selectAll(".networkGraph-line")
                 .data(data.links)
                 .enter().append("line")
-                .attr("class", "d3-line")
+                .attr("class", "networkGraph-line")
                 .style("stroke-width", function (d) {
                     return Math.sqrt(d.value);
                 });
@@ -332,10 +332,10 @@ export default class ExampleFoure extends Component {
                 d.fy = null;
             };
 
-            let node = graphic.selectAll(".d3-node")
+            let node = graphic.selectAll(".networkGraph-node")
                 .data(data.nodes)
                 .enter().append("rect")
-                .attr("class", "d3-node")
+                .attr("class", "networkGraph-node")
                 .style("fill", d => 'url(#flag-' + d.code + ')')
                 .call(d3.drag()
                     .on('start', dragStart)

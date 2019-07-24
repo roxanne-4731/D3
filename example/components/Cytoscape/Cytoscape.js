@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import cytoscape from 'cytoscape';
-import '../../Styles/Cytoscape.css';
+import '../../assets/styles/Cytoscape.css';
 
 export default class Cytoscape extends Component {
     makeid(length) {

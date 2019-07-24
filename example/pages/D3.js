@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import D3ExampleOne from '../Components/D3Examples/D3TooltipHtml';
-import D3ExampleTwo from '../Components/D3Examples/D3Canvas';
-import D3ExampleThree from '../Components/D3Examples/D3Subset';
-import D3ExampleFoure from '../Components/D3Examples/D3TooltipSvg';
-import D3ExampleFive from '../Components/D3Examples/D3Zoom&Drag';
+import D3ExampleOne from '../components/D3Examples/D3TooltipHtml';
+import D3ExampleTwo from '../components/D3Examples/D3Canvas';
+import D3ExampleThree from '../components/D3Examples/D3Subset';
+import D3ExampleFoure from '../components/D3Examples/D3TooltipSvg';
+import D3ExampleFive from '../components/D3Examples/D3Zoom&Drag';
+import D3ExampleSix from '../components/D3Examples/D3Collapsible';
 
-import '../Styles/D3Base.css';
+import '../assets/styles/D3Base.css';
 
 export default class App extends Component {
     state = {
@@ -51,6 +52,13 @@ export default class App extends Component {
                         <D3ExampleFive/>
                     </div>
                 );
+            case 6:
+                return (
+                    <div className="container-style">
+                        <h2 className="title-style">Collapsible</h2>
+                        <D3ExampleSix/>
+                    </div>
+                );
             default :
                 return (
                     <h2 className="title-style">D3 Examples</h2>
@@ -67,6 +75,7 @@ export default class App extends Component {
                     <button className="buttonStyle" onClick={() => this.renderExampleOne(3)}>Example 3</button>
                     <button className="buttonStyle" onClick={() => this.renderExampleOne(4)}>Example 4</button>
                     <button className="buttonStyle" onClick={() => this.renderExampleOne(5)}>Example 5</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(6)}>Example 6</button>
                 </div>
                 <div className="container-style">
                     {this.showRender(this.state.number)}

@@ -1,4 +1,4 @@
-import * as functions from '../../helper/functions';
+import * as functions from '../../helpers/functions';
 
 export const links = [
     {source: 27, target: 28},
@@ -805,10 +805,14 @@ export const data = {
 
 export const custom = {
     nodes: [
-        {id: "mammal", group: 0, label: "Mammals", level: 1},
-        {id: "dog", group: 0, label: "Dogs", level: 2},
-        {id: "cat", group: 0, label: "Cats", level: 2},
-        {id: "fox", group: 0, label: "Foxes", level: 2},
+        {id: "mammal", group: 0, label: "Mammals", level: 1, children: [
+                {id: "a", group: 2, label: "a", level: 4},
+                {id: "b", group: 2, label: "b", level: 5},
+                {id: "c", group: 2, label: "c", level: 4}
+            ]},
+        {id: "dog", group: 1, label: "Dogs", level: 2},
+        {id: "cat", group: 1, label: "Cats", level: 2},
+        {id: "fox", group: 1, label: "Foxes", level: 2},
         {id: "elk", group: 0, label: "Elk", level: 2},
         {id: "insect", group: 1, label: "Insects", level: 1},
         {id: "ant", group: 1, label: "Ants", level: 2},

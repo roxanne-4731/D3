@@ -1,12 +1,12 @@
 import React from "react";
 import {BrowserRouter, NavLink, Route, Switch} from "react-router-dom";
-import App from '../Pages/App';
-import D3 from '../Pages/D3';
-import Cytoscape from '../Components/Cytoscape/Cytoscape';
-import Test from '../Pages/test';
+import App from '../pages/App';
+import D3 from '../pages/D3';
+import Cytoscape from '../components/Cytoscape/Cytoscape';
+import Test from '../pages/test';
 
-import '../Styles/index.css';
-import '../Styles/Router.css';
+import '../assets/styles/index.css';
+import '../../example/assets/styles/Router.css';
 
 const Header = () => (
     <header className="header-style">

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import * as d3 from 'd3';
 import axios from 'axios';
-import '../../Styles/D3.css';
+import '../../assets/styles/D3.css';
 
 export default class App extends Component {
     state = {
