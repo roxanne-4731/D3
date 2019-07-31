@@ -1,1 +1,1 @@
-export * from './Canvas/d3Canvas';
+export * from '../example/helpers/Canvas/d3Canvas';
