@@ -1,9 +1,11 @@
 import * as d3 from "d3";
 
 export default class Nodes {
+    nodes;
+    simulation;
 
     constructor(nodes, simulation) {
-        this.nodes = nodes;
+       this.nodes = nodes;
         this.simulation = simulation;
         this.nodes.call(d3.drag()
             .on('start', (d) => dragStart(d, this))
@@ -11,15 +13,15 @@ export default class Nodes {
             .on('end', (d) => dragEnd(d, this)));
     }
 
-    onNodesClick() {
-
+    onClick(listener) {
+        this.nodes.on('click', listener)
     }
 
-    onNodesMouseOver() {
-
+    onMouseOver(listener) {
+        this.nodes.on('mouseover', listener)
     }
 
-    setNodesStyle(styles) {
+    setStyle(styles) {
         styles.forEach((style, index) => {
             this.nodes.attr(style.name, style.value)
         })

@@ -12,26 +12,4 @@ export default class Base {
     initCircleGraph(radius) {
         throw new Error('You have to implement the method doSomething!');
     }
-
-    simulateGraph() {
-
-    }
-
-    dragAction() {
-
-    }
-    zoomAction() {
-
-    }
-
-    setLinksStyle() {
-
-    }
-
-    setNodesStyle() {
-
-    }
-    tickedAction() {
-
-    }
 }

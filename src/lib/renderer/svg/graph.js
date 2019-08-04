@@ -10,22 +10,13 @@ export class Svg extends Base {
     simulation;
     node;
     link;
-    svgStyle;
 
     constructor(data, height, width) {
         super(data, height, width);
     }
 
-    collapsibleNode() {
-
-    }
-
     dragAction() {
         super.dragAction();
-    }
-
-    getGraphSvg() {
-
     }
 
     init(selector) {
