@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import Base from '../base-graph';
+import Base from '../base';
 
 export class Canvas extends Base{
     height = window.innerHeight;

@@ -1,10 +1,10 @@
-import Base from '../base-graph';
-import Nodes from './node';
+import Base from '../base';
+import Nodes from './nodes';
 import * as d3 from "d3";
 import {custom} from "../../../../example/assets/json/data";
 import '../../../styles/nodesSvgGraph.css';
 
-export class Svg extends Base {
+export class svgRenderer extends Base {
 
     graphSvg;
     simulation;
@@ -58,7 +58,6 @@ function init(that, selector) {
     that.graphSvg = d3.select(selector).append('svg')
         .attr("width", that.width)
         .attr("height", that.height);
-    console.log('');
     simulateGraph(that);
 
 }
@@ -106,7 +105,7 @@ function tickedAction(that, node, link, type) {
         });
     node
         .attr(type === 'rect' ? "x" : "cx", function (d) {
-            return  d.x;
+            return d.x;
         })
         .attr(type === 'rect' ? "y" : "cy", function (d) {
             return d.y;

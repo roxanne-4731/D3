@@ -6,8 +6,8 @@ import * as Graph from '../../../src';
 export default class exampleTwo extends Component {
 
     componentDidMount() {
-        let rectangle = new Graph.Svg(custom, 400, 400);
-        let circle = new Graph.Svg(custom, 400, 400);
+        let rectangle = new Graph.svgRenderer(custom, 400, 400);
+        let circle = new Graph.svgRenderer(custom, 400, 400);
         rectangle.initRectGraph('.first-child', 10, 20);
         circle.initCircleGraph('.second-child', 8);
     }

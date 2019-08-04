@@ -1,4 +1,4 @@
-class Link {
+class Links {
     links;
     linksDistance;
 

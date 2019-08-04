@@ -1,1 +1,1 @@
-export {Svg}  from './graph';
+export {svgRenderer}  from './svgRenderer';
