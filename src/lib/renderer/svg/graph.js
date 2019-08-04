@@ -1,6 +1,5 @@
 import Base from '../base-graph';
-import nodes from './node';
-import links from './links';
+import Nodes from './node';
 import * as d3 from "d3";
 import {custom} from "../../../../example/assets/json/data";
 
@@ -32,19 +31,13 @@ export class Svg extends Base {
         this.graphSvg = d3.select(selector).append('svg')
             .attr("width", this.width)
             .attr("height", this.height);
-        this.simulation = d3.forceSimulation(this.data.nodes)
-            .force("charge", d3.forceManyBody().strength(-20))
-            .force("link", d3.forceLink(this.data.links).id(function (d) {
-                return d.id
-            }).distance(200))
-            .force("x", d3.forceX(this.width / 2))
-            .force("y", d3.forceY(this.height / 2));
+        this.simulateGraph();
     }
 
     initCircleGraph(selector, radius) {
+
         this.init(selector);
-        // this.simulateGraph();
-         this.link = this.graphSvg.selectAll(".link")
+        this.link = this.graphSvg.selectAll(".link")
             .data(custom.links)
             .enter().append("line")
             .attr("class", "link")
@@ -60,31 +53,13 @@ export class Svg extends Base {
             .attr("cy", function (d) {
                 return d.y
             })
-            .attr("r", 4);
+            .attr("r", radius);
 
         this.simulation.on("tick", () => {
-            const that = this;
-            that.link
-                .attr("x1", function (d) {
-                    return d.source.x;
-                })
-                .attr("y1", function (d) {
-                    return d.source.y;
-                })
-                .attr("x2", function (d) {
-                    return d.target.x;
-                })
-                .attr("y2", function (d) {
-                    return d.target.y;
-                });
-            that.node
-                .attr("cx", function (d) {
-                    return d.x;
-                })
-                .attr("cy", function (d) {
-                    return d.y;
-                });
+            this.tickedAction()
         });
+
+        return new Nodes(this.node);
     }
 
     initRectGraph(height, width) {
@@ -104,7 +79,8 @@ export class Svg extends Base {
     }
 
     tickedAction() {
-        this.link
+        const that = this;
+        that.link
             .attr("x1", function (d) {
                 return d.source.x;
             })
@@ -117,7 +93,7 @@ export class Svg extends Base {
             .attr("y2", function (d) {
                 return d.target.y;
             });
-        this.node
+        that.node
             .attr("cx", function (d) {
                 return d.x;
             })

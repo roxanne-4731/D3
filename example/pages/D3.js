@@ -5,6 +5,8 @@ import D3ExampleThree from '../components/D3Examples/D3Subset';
 import D3ExampleFoure from '../components/D3Examples/D3TooltipSvg';
 import D3ExampleFive from '../components/D3Examples/D3Zoom&Drag';
 import D3ExampleSix from '../components/D3Examples/D3Collapsible';
+import GraphClass from '../components/D3Examples/GraphClass';
+
 
 import '../assets/styles/D3Base.css';
 
@@ -20,8 +22,8 @@ export default class App extends Component {
             case 1 :
                 return (
                     <div className="container-style">
-                        <h2 className="title-style">Tooltip using html</h2>
-                        <D3ExampleOne/>
+                        <h2 className="title-style">Using Graph Class</h2>
+                        <GraphClass/>
                     </div>
                 );
             case 2:
@@ -70,12 +72,12 @@ export default class App extends Component {
         return (
             <div className="layout-style">
                 <div className="buttons-style">
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(1)}>Example 1</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(2)}>Example 2</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(3)}>Example 3</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(4)}>Example 4</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(5)}>Example 5</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(6)}>Example 6</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(1)}>Custom Library</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(2)}>Canvas</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(3)}>Show Subset</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(4)}>Tooltip using svg</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(5)}>Zoom and Drag</button>
+                    <button className="buttonStyle" onClick={() => this.renderExampleOne(6)}>Collapsible</button>
                 </div>
                 <div className="container-style">
                     {this.showRender(this.state.number)}
