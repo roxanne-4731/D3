@@ -6,21 +6,17 @@ import * as Graph from '../../../src';
 export default class exampleTwo extends Component {
 
     componentDidMount() {
-        let svg = new Graph.Svg(custom, 500, 700);
-        const nodes = svg.initCircleGraph('.container', 5);
-        // nodes.setClassName('custom-nodes');
-        // nodes.setNodesStyle([{name: 'fill', value: 'red'}, {name: 'stroke', value: 'green'}])
-        // nodes.onNodesClick(function () {
-        //     console.log('hi i am clicking you right now !!!!');
-        // })
-        // nodes.onMouseOver(function () {
-        //     console.log('mouse over on you');
-        // })
+        let rectangle = new Graph.Svg(custom, 400, 400);
+        let circle = new Graph.Svg(custom, 400, 400);
+        rectangle.initRectGraph('.first-child', 10, 20);
+        circle.initCircleGraph('.second-child', 8);
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="container-grid">
+                <div className="first-child"/>
+                <div className="second-child"/>
             </div>
         );
     }

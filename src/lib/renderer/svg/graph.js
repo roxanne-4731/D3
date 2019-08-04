@@ -8,102 +8,116 @@ export class Svg extends Base {
 
     graphSvg;
     simulation;
-    node;
-    link;
 
     constructor(data, height, width) {
         super(data, height, width);
     }
 
-    dragAction() {
-        super.dragAction();
-    }
-
-    init(selector) {
-        this.graphSvg = d3.select(selector).append('svg')
-            .attr("width", this.width)
-            .attr("height", this.height);
-        this.simulateGraph();
-    }
-
     initCircleGraph(selector, radius) {
-
-        this.init(selector);
-        this.link = this.graphSvg.selectAll(".link")
-            .data(custom.links)
-            .enter().append("line")
-            .attr("class", "link")
-            .attr('stroke', '#E5E5E5');
-
-        this.node = this.graphSvg.selectAll(".node")
-            .data(custom.nodes)
-            .enter().append("circle")
-            .attr("class", "nodes")
-            .attr("cx", function (d) {
-                return d.x
-            })
+        let nodes, links;
+        init(this, selector);
+        nodes = createNodes(this, "circle");
+        links = createLinks(this);
+        nodes.attr("cx", function (d) {
+            return d.x
+        })
             .attr("cy", function (d) {
                 return d.y
             })
             .attr("r", radius);
 
         this.simulation.on("tick", () => {
-            this.tickedAction()
+            tickedAction(this, nodes, links, 'circle')
         });
 
-        this.graphSvg.call(d3.zoom()
-            .scaleExtent([1 / 2, 8])
-            .on("zoom", () => zoomed(this)));
-
-        return new Nodes(this.node, this.simulation);
+        // return new Nodes(this.node, this.simulation);
     }
 
-    initRectGraph(height, width) {
-        super.initRectGraph(height, width);
-    }
-
-    setSvgStyle() {
-
-    }
-
-    tickedAction() {
-        const that = this;
-        that.link
-            .attr("x1", function (d) {
-                return d.source.x;
+    initRectGraph(selector, height, width) {
+        let nodes, links;
+        init(this, selector);
+        nodes = createNodes(this, "rect");
+        links = createLinks(this);
+        nodes.attr('width', width)
+            .attr('height', height)
+            .attr("x", function (d) {
+                return d.x
             })
-            .attr("y1", function (d) {
-                return d.source.y;
-            })
-            .attr("x2", function (d) {
-                return d.target.x;
-            })
-            .attr("y2", function (d) {
-                return d.target.y;
+            .attr("y", function (d) {
+                return d.y
             });
-        that.node
-            .attr("cx", function (d) {
-                return d.x;
-            })
-            .attr("cy", function (d) {
-                return d.y;
-            });
-    }
 
-    simulateGraph() {
-        this.simulation = d3.forceSimulation(this.data.nodes)
-            .force("charge", d3.forceManyBody().strength(-20))
-            .force("link", d3.forceLink(this.data.links).id(function (d) {
-                return d.id
-            }).distance(200))
-            .force("x", d3.forceX(this.width / 2))
-            .force("y", d3.forceY(this.height / 2));
+        this.simulation.on("tick", () => {
+            tickedAction(this, nodes, links, 'rect')
+        });
+        // return new Nodes(this.node, this.simulation);
     }
 }
 
-// export default new SVG();
+function init(that, selector) {
+    that.graphSvg = d3.select(selector).append('svg')
+        .attr("width", that.width)
+        .attr("height", that.height);
+    console.log('');
+    simulateGraph(that);
 
-function zoomed(that) {
-    that.node.attr("transform", d3.event.transform);
-    that.link.attr("transform", d3.event.transform);
+}
+
+function simulateGraph(that) {
+    that.simulation = d3.forceSimulation(that.data.nodes)
+        .force("charge", d3.forceManyBody().strength(-20))
+        .force("link", d3.forceLink(that.data.links).id(function (d) {
+            return d.id
+        }).distance(200))
+        .force("x", d3.forceX(that.width / 2))
+        .force("y", d3.forceY(that.height / 2));
+}
+
+function createNodes(that, type) {
+
+    return that.graphSvg.selectAll(".node")
+        .data(custom.nodes)
+        .enter().append(type)
+        .attr("class", "nodes")
+}
+
+function createLinks(that) {
+    return that.graphSvg.selectAll(".link")
+        .data(custom.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .attr('stroke', '#E5E5E5');
+}
+
+function tickedAction(that, node, link, type) {
+
+    link
+        .attr("x1", function (d) {
+            return d.source.x;
+        })
+        .attr("y1", function (d) {
+            return d.source.y;
+        })
+        .attr("x2", function (d) {
+            return d.target.x;
+        })
+        .attr("y2", function (d) {
+            return d.target.y;
+        });
+    node
+        .attr(type === 'rect' ? "x" : "cx", function (d) {
+            return  d.x;
+        })
+        .attr(type === 'rect' ? "y" : "cy", function (d) {
+            return d.y;
+        });
+
+    that.graphSvg.call(d3.zoom()
+        .scaleExtent([1 / 2, 8])
+        .on("zoom", () => zoomed(node, link)));
+}
+
+function zoomed(node, link) {
+    node.attr("transform", d3.event.transform);
+    link.attr("transform", d3.event.transform);
 }
