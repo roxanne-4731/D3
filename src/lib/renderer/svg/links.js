@@ -1,19 +1,11 @@
-class Links {
+export default class Links {
     links;
     linksDistance;
 
-    getLinks(graphSvg, links) {
-        this.links = graphSvg.selectAll(".link")
-            .data(links)
-            .enter().append("line")
-            .attr("class", "link")
-            .attr('stroke', '#E5E5E5');
-        return this.links;
-    }
+    setClass() {
 
-    setLinkStyle() {
+    }
+    setStyle() {
 
     }
 }
-
-export default new Link();

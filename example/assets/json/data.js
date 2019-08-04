@@ -838,3 +838,20 @@ export const custom = {
         {target: "pike", source: "dog", strength: 0.1}
     ]
 };
+export const custom2 = {
+    nodes: [
+        {id: "mammal", group: 0, label: "Mammals", level: 1, children: [
+                {id: "a", group: 2, label: "a", level: 4},
+                {id: "b", group: 2, label: "b", level: 5},
+                {id: "c", group: 2, label: "c", level: 4}
+            ]},
+        {id: "dog", group: 1, label: "Dogs", level: 2},
+        {id: "cat", group: 1, label: "Cats", level: 2},
+
+    ],
+    links: [
+        {target: "mammal", source: "dog", strength: 0.7},
+        {target: "mammal", source: "cat", strength: 0.7},
+
+    ]
+};

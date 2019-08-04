@@ -1,7 +1,8 @@
 import Base from '../base';
 import Nodes from './nodes';
+import Links from './links';
+import Graph from './svgGraph';
 import * as d3 from "d3";
-import {custom} from "../../../../example/assets/json/data";
 import '../../../styles/nodesSvgGraph.css';
 
 export class svgRenderer extends Base {
@@ -30,7 +31,11 @@ export class svgRenderer extends Base {
             tickedAction(this, nodes, links, 'circle')
         });
 
-        // return new Nodes(this.node, this.simulation);
+        return {
+            graph: new Graph(this.graphSvg),
+            nodes: new Nodes(nodes, this.simulation),
+            links: new Links()
+        };
     }
 
     initRectGraph(selector, height, width) {
@@ -50,7 +55,12 @@ export class svgRenderer extends Base {
         this.simulation.on("tick", () => {
             tickedAction(this, nodes, links, 'rect')
         });
-        // return new Nodes(this.node, this.simulation);
+
+        return {
+            graph: new Graph(this.graphSvg),
+            nodes: new Nodes(nodes, this.simulation),
+            links: new Links()
+        };
     }
 }
 
@@ -75,14 +85,14 @@ function simulateGraph(that) {
 function createNodes(that, type) {
 
     return that.graphSvg.selectAll(".node")
-        .data(custom.nodes)
+        .data(that.data.nodes)
         .enter().append(type)
         .attr("class", "nodes")
 }
 
 function createLinks(that) {
     return that.graphSvg.selectAll(".link")
-        .data(custom.links)
+        .data(that.data.links)
         .enter().append("line")
         .attr("class", "link")
         .attr('stroke', '#E5E5E5');
