@@ -1,1 +1,3 @@
-export * from '../example/helpers/Canvas/d3Canvas';
+export * from './lib/renderer/canvas';
+// export * from './lib/renderer/svg/graph'
+export * from './lib/renderer/svg';

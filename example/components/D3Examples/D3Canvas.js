@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import {data} from '../../assets/json/data';
+import {custom} from '../../../example/assets/json/data';
 import '../../assets/styles/D3Two.css';
-import * as d3Functions from '../../helpers/Canvas/d3Canvas';
-import Graph from '../../../src/lib/renderer/canvas/graph';
+import * as Svg from '../../../src';
+
 export default class exampleTwo extends Component {
+
     componentDidMount() {
-        // d3Functions.canvasBase(data);
-        let canvas = new Graph(data, ".container", 5);
-        canvas.zoom();
-        canvas.drag();
+        let svg = new Svg.Svg(custom, 500, 700);
+        svg.initCircleGraph('.container', 5);
     }
 
     render() {
@@ -17,4 +16,5 @@ export default class exampleTwo extends Component {
             </div>
         );
     }
+
 }

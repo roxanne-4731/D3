@@ -1,10 +1,12 @@
 import * as d3 from "d3";
+import Base from '../base-graph';
 
-export default class Graph {
+export class Canvas extends Base{
     height = window.innerHeight;
     graphWidth = window.innerWidth;
 
-    constructor(data, target, radius) {
+    constructor(data, height, width, target, radius) {
+        super(data, height, width);
         this.data = data;
         this.radius = radius;
         this.graphCanvas = d3.select(target).append('canvas')
@@ -153,3 +155,5 @@ export default class Graph {
 //        transform = d3.zoomIdentity;
     }
 }
+
+// export default new Canvas();

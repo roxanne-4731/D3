@@ -59,6 +59,8 @@ export default class Example5 extends Component {
                 .on('start', dragStart)
                 .on('drag', drag)
                 .on('end', dragEnd));
+
+
         const textElements = graphic.append('g')
             .selectAll('text')
             .data(custom.nodes)
