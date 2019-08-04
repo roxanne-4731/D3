@@ -2,6 +2,7 @@ import Base from '../base-graph';
 import Nodes from './node';
 import * as d3 from "d3";
 import {custom} from "../../../../example/assets/json/data";
+import '../../../styles/nodesSvgGraph.css';
 
 export class Svg extends Base {
 
@@ -46,7 +47,7 @@ export class Svg extends Base {
         this.node = this.graphSvg.selectAll(".node")
             .data(custom.nodes)
             .enter().append("circle")
-            .attr("class", "node")
+            .attr("class", "nodes")
             .attr("cx", function (d) {
                 return d.x
             })
@@ -59,7 +60,11 @@ export class Svg extends Base {
             this.tickedAction()
         });
 
-        return new Nodes(this.node);
+        this.graphSvg.call(d3.zoom()
+            .scaleExtent([1 / 2, 8])
+            .on("zoom", () => zoomed(this)));
+
+        return new Nodes(this.node, this.simulation);
     }
 
     initRectGraph(height, width) {
@@ -68,14 +73,6 @@ export class Svg extends Base {
 
     setSvgStyle() {
 
-    }
-
-    setLinksStyle() {
-        super.setLinksStyle();
-    }
-
-    setNodesStyle() {
-        super.setNodesStyle();
     }
 
     tickedAction() {
@@ -102,10 +99,6 @@ export class Svg extends Base {
             });
     }
 
-    zoomAction() {
-        super.zoomAction();
-    }
-
     simulateGraph() {
         this.simulation = d3.forceSimulation(this.data.nodes)
             .force("charge", d3.forceManyBody().strength(-20))
@@ -118,3 +111,8 @@ export class Svg extends Base {
 }
 
 // export default new SVG();
+
+function zoomed(that) {
+    that.node.attr("transform", d3.event.transform);
+    that.link.attr("transform", d3.event.transform);
+}

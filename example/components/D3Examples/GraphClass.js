@@ -8,8 +8,8 @@ export default class exampleTwo extends Component {
     componentDidMount() {
         let svg = new Svg.Svg(custom, 500, 700);
         const nodes = svg.initCircleGraph('.container', 5);
-        nodes.setClassName('custom-nodes');
-
+        // nodes.setClassName('custom-nodes');
+        // nodes.setNodesStyle([{name: 'fill', value: 'red'}, {name: 'stroke', value: 'green'}])
     }
 
     render() {
