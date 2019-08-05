@@ -3,9 +3,9 @@
     background-color: white;
     display: flex;
 }
-.links line {
-    stroke: black
-}
+/*.links line {*/
+    /*stroke: black*/
+/*}*/
 .texts text {
     background-color: darkolivegreen;
     color: red;

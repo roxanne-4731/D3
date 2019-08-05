@@ -16,7 +16,6 @@
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "css-loader": "2.1.1",
-    "cytoscape": "^3.8.1",
     "d3": "^5.9.7",
     "d3-force": "^2.0.1",
     "dotenv": "6.2.0",
