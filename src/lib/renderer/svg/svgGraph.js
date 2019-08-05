@@ -1,11 +1,13 @@
 export default class SvgGraph {
 
+    svgGraph;
+
     constructor(svgGraph) {
         this.svgGraph = svgGraph
     }
 
     setStyle() {
-        console.log('it is fake !');
+        console.log(this.svgGraph);
     }
 
 

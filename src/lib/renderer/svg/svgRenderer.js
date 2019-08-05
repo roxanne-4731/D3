@@ -3,7 +3,7 @@ import Nodes from './nodes';
 import Links from './links';
 import Graph from './svgGraph';
 import * as d3 from "d3";
-import '../../../styles/nodesSvgGraph.css';
+import '../../../styles/graphStyle.css';
 
 export class svgRenderer extends Base {
 
@@ -14,12 +14,10 @@ export class svgRenderer extends Base {
         super(data, height, width);
     }
 
-    initCircleGraph(selector, radius) {
-        let nodes, links;
-        init(this, selector);
-        nodes = createNodes(this, "circle");
-        links = createLinks(this);
-        nodes.attr("cx", function (d) {
+    renderCircleGraph(selector, radius) {
+        const content = init(this, selector, 'circle');
+
+        content[0].attr("cx", function (d) {
             return d.x
         })
             .attr("cy", function (d) {
@@ -27,23 +25,13 @@ export class svgRenderer extends Base {
             })
             .attr("r", radius);
 
-        this.simulation.on("tick", () => {
-            tickedAction(this, nodes, links, 'circle')
-        });
-
-        return {
-            graph: new Graph(this.graphSvg),
-            nodes: new Nodes(nodes, this.simulation),
-            links: new Links()
-        };
+        return render(this, 'circle', content)
     }
 
-    initRectGraph(selector, height, width) {
-        let nodes, links;
-        init(this, selector);
-        nodes = createNodes(this, "rect");
-        links = createLinks(this);
-        nodes.attr('width', width)
+    renderRectGraph(selector, height, width) {
+        const content = init(this, selector, 'rect');
+
+        content[0].attr('width', width)
             .attr('height', height)
             .attr("x", function (d) {
                 return d.x
@@ -52,34 +40,8 @@ export class svgRenderer extends Base {
                 return d.y
             });
 
-        this.simulation.on("tick", () => {
-            tickedAction(this, nodes, links, 'rect')
-        });
-
-        return {
-            graph: new Graph(this.graphSvg),
-            nodes: new Nodes(nodes, this.simulation),
-            links: new Links()
-        };
+        return render(this, 'rect', content)
     }
-}
-
-function init(that, selector) {
-    that.graphSvg = d3.select(selector).append('svg')
-        .attr("width", that.width)
-        .attr("height", that.height);
-    simulateGraph(that);
-
-}
-
-function simulateGraph(that) {
-    that.simulation = d3.forceSimulation(that.data.nodes)
-        .force("charge", d3.forceManyBody().strength(-20))
-        .force("link", d3.forceLink(that.data.links).id(function (d) {
-            return d.id
-        }).distance(200))
-        .force("x", d3.forceX(that.width / 2))
-        .force("y", d3.forceY(that.height / 2));
 }
 
 function createNodes(that, type) {
@@ -94,8 +56,39 @@ function createLinks(that) {
     return that.graphSvg.selectAll(".link")
         .data(that.data.links)
         .enter().append("line")
-        .attr("class", "link")
-        .attr('stroke', '#E5E5E5');
+        .attr("class", "link");
+}
+
+function init(that, selector, type) {
+
+    that.graphSvg = d3.select(selector).append('svg')
+        .attr("width", that.width)
+        .attr("height", that.height);
+    simulateGraph(that);
+    return [createNodes(that, type), createLinks(that)];
+}
+
+function render(that, type, content) {
+
+    that.simulation.on("tick", () => {
+        tickedAction(that, content[0], content[1], type)
+    });
+
+    return {
+        graph: new Graph(that.graphSvg),
+        nodes: new Nodes(content[0], that.simulation),
+        links: new Links(content[1], that.simulation)
+    };
+}
+
+function simulateGraph(that) {
+    that.simulation = d3.forceSimulation(that.data.nodes)
+        .force("charge", d3.forceManyBody().strength(-20))
+        .force("link", d3.forceLink(that.data.links).id(function (d) {
+            return d.id
+        }).distance(200))
+        .force("x", d3.forceX(that.width / 2))
+        .force("y", d3.forceY(that.height / 2));
 }
 
 function tickedAction(that, node, link, type) {
@@ -113,6 +106,7 @@ function tickedAction(that, node, link, type) {
         .attr("y2", function (d) {
             return d.target.y;
         });
+
     node
         .attr(type === 'rect' ? "x" : "cx", function (d) {
             return d.x;
