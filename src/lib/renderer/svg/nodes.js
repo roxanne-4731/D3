@@ -10,8 +10,8 @@ export default class Nodes {
         this.simulation = simulation;
         this.nodes.call(d3.drag()
             .on('start', (d) => dragStart(d, this))
-            .on('drag', (d) => drag(d, this))
-            .on('end', (d) => dragEnd(d, this)));
+            .on('drag', (d) => drag(d, this)));
+            // .on('end', (d) => dragEnd(d, this)));
     }
 
     onClick(listener) {
@@ -50,9 +50,9 @@ const drag = (d) => {
     d.fy = d3.event.y;
 };
 
-const dragEnd = (d, that) => {
-
-    if (!d3.event.active) that.simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-};
+// const dragEnd = (d, that) => {
+//
+//     if (!d3.event.active) that.simulation.alphaTarget(0);
+//     d.fx = null;
+//     d.fy = null;
+// };

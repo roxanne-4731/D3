@@ -850,8 +850,8 @@ export const custom2 = {
 
     ],
     links: [
-        {target: "mammal", source: "dog", strength: 0.7},
-        {target: "mammal", source: "cat", strength: 0.7},
+        {target: "mammal", source: "dog", strength: 0.7, type: "WORKS_ON"},
+        {target: "mammal", source: "cat", strength: 0.7, type: "IS_A"},
 
     ]
 };
