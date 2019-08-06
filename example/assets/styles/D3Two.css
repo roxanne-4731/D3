@@ -29,3 +29,6 @@ div.tooltip {
     justify-content: space-around;
 }
 
+.textNodes {
+    fill: greenyellow;
+}

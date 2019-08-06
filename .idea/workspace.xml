@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9465b732-3ef9-415f-b957-d502aa078e87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/styles/D3.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/styles/D3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/assets/json/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/json/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/assets/styles/D3Two.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/styles/D3Two.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/graphStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/graphStyle.css" afterDir="false" />
     </list>
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="94" column="26" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="26" />
+            <state relative-caret-position="209">
+              <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -35,31 +35,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="814" column="16" selection-start-line="814" selection-start-column="16" selection-end-line="814" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+            <state relative-caret-position="184">
+              <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="831" column="68" selection-start-line="831" selection-start-column="68" selection-end-line="831" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -68,18 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#nodes</find>
-      <find>rect</find>
-      <find>networkGraph-node</find>
-      <find>زخدسخم</find>
-      <find>zoom</find>
-      <find>zoomed</find>
-      <find>createNodes</find>
-      <find>data</find>
-      <find>console</find>
-      <find>link</find>
-      <find>render</find>
-      <find>selectAll</find>
       <find>cus</find>
       <find>g node</find>
       <find>ticked</find>
@@ -95,9 +74,21 @@
       <find>tickedAction</find>
       <find>rectHeight</find>
       <find>text</find>
-      <find>create</find>
       <find>createLinks</find>
       <find>simulateGraph</find>
+      <find>new</find>
+      <find>create</find>
+      <find>createLi</find>
+      <find>createLin</find>
+      <find>render</find>
+      <find>edgelabel</find>
+      <find>ticke</find>
+      <find>edgelabels</find>
+      <find>tickedAct</find>
+      <find>path</find>
+      <find>edgepaths\]</find>
+      <find>poin</find>
+      <find>roxa</find>
     </findStrings>
     <replaceStrings>
       <replace>this.radius</replace>
@@ -135,21 +126,21 @@
         <option value="$PROJECT_DIR$/src/lib/renderer/base-graph.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/node.js" />
         <option value="$PROJECT_DIR$/example/assets/styles/D3Foure.css" />
-        <option value="$PROJECT_DIR$/example/assets/styles/D3Two.css" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/graph.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/index.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
-        <option value="$PROJECT_DIR$/example/assets/json/data.js" />
         <option value="$PROJECT_DIR$/example/assets/styles/D3Six.css" />
         <option value="$PROJECT_DIR$/src/styles/nodesSvgGraph.css" />
         <option value="$PROJECT_DIR$/src/lib/renderer/base.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/links.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" />
         <option value="$PROJECT_DIR$/example/assets/styles/D3.css" />
-        <option value="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" />
-        <option value="$PROJECT_DIR$/src/styles/graphStyle.css" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/example/assets/styles/D3Two.css" />
+        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
+        <option value="$PROJECT_DIR$/src/styles/graphStyle.css" />
+        <option value="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" />
+        <option value="$PROJECT_DIR$/example/assets/json/data.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" />
       </list>
     </option>
@@ -180,6 +171,19 @@
             <path>
               <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
               <item name="chartjs" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -194,14 +198,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="renderer" type="462c0819:PsiDirectoryNode" />
-              <item name="svg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
@@ -270,7 +266,7 @@
       <workItem from="1564808845321" duration="17832000" />
       <workItem from="1564894190142" duration="22348000" />
       <workItem from="1564982910866" duration="2024000" />
-      <workItem from="1564984974818" duration="12523000" />
+      <workItem from="1564984974818" duration="22390000" />
     </task>
     <task id="LOCAL-00001" summary="[NetWork_Graph] add idea to gitIgnore">
       <created>1563971819820</created>
@@ -349,11 +345,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564985730932</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[NetWork_Graph] add node text">
+      <created>1565001771437</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1565001771437</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106211000" />
+    <option name="totallyTimeSpent" value="116078000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -368,8 +371,8 @@
     <frame x="0" y="-1" width="1920" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.32159266" visible="true" weight="0.1950448" />
-      <window_info id="Structure" order="1" sideWeight="0.6784074" side_tool="true" weight="0.20611492" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3207547" visible="true" weight="0.1950448" />
+      <window_info id="Structure" order="1" sideWeight="0.6792453" side_tool="true" visible="true" weight="0.1950448" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -380,9 +383,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973643" weight="0.48176795" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" weight="0.32486188" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" weight="0.3524862" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002636" side_tool="true" weight="0.3447514" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4960464" visible="true" weight="0.28508288" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4960464" visible="true" weight="0.29723758" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -443,7 +446,8 @@
     <MESSAGE value="[NetWork_Graph] change the name of classes - add new class to svg folder (svg-Graph)" />
     <MESSAGE value="[NetWork_Graph] return an object of svg graph, nodes and links when initGraph from svgRenderer class" />
     <MESSAGE value="[NetWork_Graph] set the first methods of link and svg class" />
-    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] set the first methods of link and svg class" />
+    <MESSAGE value="[NetWork_Graph] add node text" />
+    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] add node text" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/cytoscape/src/index.js">
@@ -696,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Two.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -750,31 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/links.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="814" column="16" selection-start-line="814" selection-start-column="16" selection-end-line="814" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/graphStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -795,13 +771,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
+    <entry file="file://$PROJECT_DIR$/src/styles/graphStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="414">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -812,10 +792,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Two.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="831" column="68" selection-start-line="831" selection-start-column="68" selection-end-line="831" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="26" />
+        <state relative-caret-position="209">
+          <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

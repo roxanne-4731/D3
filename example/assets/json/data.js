@@ -822,20 +822,20 @@ export const custom = {
         {id: "pike", group: 2, label: "Pikes", level: 2}
     ],
     links: [
-        {target: "mammal", source: "dog", strength: 0.7},
-        {target: "mammal", source: "cat", strength: 0.7},
-        {target: "mammal", source: "fox", strength: 0.7},
-        {target: "mammal", source: "elk", strength: 0.7},
-        {target: "insect", source: "ant", strength: 0.7},
-        {target: "insect", source: "bee", strength: 0.7},
-        {target: "fish", source: "carp", strength: 0.7},
-        {target: "fish", source: "pike", strength: 0.7},
-        {target: "cat", source: "elk", strength: 0.1},
-        {target: "carp", source: "ant", strength: 0.1},
-        {target: "elk", source: "bee", strength: 0.1},
-        {target: "dog", source: "cat", strength: 0.1},
-        {target: "fox", source: "ant", strength: 0.1},
-        {target: "pike", source: "dog", strength: 0.1}
+        {target: "mammal", source: "dog", strength: 0.7, type: "IS_A"},
+        {target: "mammal", source: "cat", strength: 0.7, type: "WORKS_ON"},
+        {target: "mammal", source: "fox", strength: 0.7, type: "IS_A"},
+        {target: "mammal", source: "elk", strength: 0.7, type: "FOUNDED"},
+        {target: "insect", source: "ant", strength: 0.7, type: "FOUNDED"},
+        {target: "insect", source: "bee", strength: 0.7, type: "IS_A"},
+        {target: "fish", source: "carp", strength: 0.7, type: "WORKS_ON"},
+        {target: "fish", source: "pike", strength: 0.7, type: "KNOWS"},
+        {target: "cat", source: "elk", strength: 0.1, type: "KNOWS"},
+        {target: "carp", source: "ant", strength: 0.1, type: "IS_A"},
+        {target: "elk", source: "bee", strength: 0.1, type: "WORKS_ON"},
+        {target: "dog", source: "cat", strength: 0.1, type: "KNOWS"},
+        {target: "fox", source: "ant", strength: 0.1, type: "KNOWS"},
+        {target: "pike", source: "dog", strength: 0.1, type: "FOUNDED"}
     ]
 };
 export const custom2 = {

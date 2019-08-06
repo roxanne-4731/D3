@@ -10,9 +10,7 @@ export default class exampleTwo extends Component {
         let circle = new Graph.svgRenderer(custom2, 600, 500);
         let getRect = rectangle.renderRectGraph('.first-child', 40, 100);
         let getCircle = circle.renderCircleGraph('.second-child', 30);
-
-        console.log('Rectangle ===> ', getRect);
-        console.log('Circle ====> ', getCircle);
+        // getCircle.nodes.setTextAttr([{name:'class', value: 'textNodes'}]);
     }
 
     render() {

@@ -4,8 +4,9 @@ export default class Nodes {
     nodes;
     simulation;
 
-    constructor(nodes, simulation) {
-       this.nodes = nodes;
+    constructor(nodes, nodeText, simulation) {
+        this.nodes = nodes;
+        this.nodeText = nodeText;
         this.simulation = simulation;
         this.nodes.call(d3.drag()
             .on('start', (d) => dragStart(d, this))
@@ -24,6 +25,12 @@ export default class Nodes {
     setStyle(styles) {
         styles.forEach((style, index) => {
             this.nodes.attr(style.name, style.value)
+        })
+    }
+
+    setTextAttr(styles) {
+        styles.forEach((style, index) => {
+            this.nodeText.attr(style.name, style.value)
         })
     }
 
