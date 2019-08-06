@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9465b732-3ef9-415f-b957-d502aa078e87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/json/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/json/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -19,20 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            <state relative-caret-position="374">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+            <state relative-caret-position="46">
+              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="207">
+              <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -53,36 +54,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>simulation</find>
-      <find>createNode</find>
-      <find>rectHeight</find>
-      <find>createLinks</find>
-      <find>simulateGraph</find>
-      <find>new</find>
-      <find>createLi</find>
-      <find>createLin</find>
-      <find>edgelabel</find>
-      <find>ticke</find>
-      <find>tickedAct</find>
-      <find>path</find>
-      <find>edgepaths\]</find>
-      <find>poin</find>
-      <find>roxa</find>
-      <find>console</find>
-      <find>createTe</find>
-      <find>label</find>
-      <find>edgelabels</find>
-      <find>edgepaths</find>
-      <find>createNodes</find>
-      <find>simulation</find>
       <find>create</find>
       <find>createEle</find>
       <find>ticked</find>
-      <find>init</find>
-      <find>tickedAction</find>
-      <find>render</find>
       <find>text</find>
       <find>sim</find>
+      <find>createLinkLabal</find>
+      <find>content</find>
+      <find>createLi</find>
+      <find>renderCirce</find>
+      <find>tickedAction</find>
+      <find>rectWidth</find>
+      <find>renderC</find>
+      <find>render()</find>
+      <find>init</find>
+      <find>createNodes</find>
+      <find>simulateGraph</find>
+      <find>createElements</find>
+      <find>linlPath</find>
+      <find>Nodes</find>
+      <find>graphSvg</find>
+      <find>simulation</find>
+      <find>nodes</find>
+      <find>node</find>
+      <find>render</find>
+      <find>this.data.</find>
+      <find>this.links</find>
+      <find>this.nodeLabel</find>
+      <find>nodeLabel</find>
+      <find>linkLabel</find>
+      <find>linkPath</find>
     </findStrings>
     <replaceStrings>
       <replace>this.radius</replace>
@@ -94,8 +95,14 @@
       <replace>d3</replace>
       <replace>this.#node</replace>
       <replace>#node</replace>
-      <replace>#simulation</replace>
       <replace>nodes</replace>
+      <replace>linkPath</replace>
+      <replace>#graphSvg</replace>
+      <replace>#simulation</replace>
+      <replace>#nodes</replace>
+      <replace>this.#links</replace>
+      <replace>this.#nodeLabel</replace>
+      <replace>#linkPath</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -133,9 +140,9 @@
         <option value="$PROJECT_DIR$/example/assets/styles/D3Two.css" />
         <option value="$PROJECT_DIR$/src/styles/graphStyle.css" />
         <option value="$PROJECT_DIR$/example/assets/json/data.js" />
+        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
         <option value="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" />
-        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
       </list>
     </option>
   </component>
@@ -218,7 +225,7 @@
       <workItem from="1564808845321" duration="17832000" />
       <workItem from="1564894190142" duration="22348000" />
       <workItem from="1564982910866" duration="2024000" />
-      <workItem from="1564984974818" duration="28956000" />
+      <workItem from="1564984974818" duration="34309000" />
     </task>
     <task id="LOCAL-00001" summary="[NetWork_Graph] add idea to gitIgnore">
       <created>1563971819820</created>
@@ -311,11 +318,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565073886433</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="[NetWork_Graph] Organize graph class">
+      <created>1565089651297</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1565089651297</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[NetWork_Graph] use symbol type to create private methods in svgRenderer class">
+      <created>1565096066647</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565096066647</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122644000" />
+    <option name="totallyTimeSpent" value="127997000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -330,8 +351,8 @@
     <frame x="0" y="-1" width="1920" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6971917" visible="true" weight="0.1950448" />
-      <window_info id="Structure" order="1" sideWeight="0.3028083" side_tool="true" visible="true" weight="0.1950448" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6969697" visible="true" weight="0.1950448" />
+      <window_info id="Structure" order="1" sideWeight="0.3030303" side_tool="true" visible="true" weight="0.1950448" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -342,9 +363,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973643" weight="0.48176795" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" weight="0.04198895" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" visible="true" weight="0.19779006" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028993" side_tool="true" weight="0.4364641" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49710068" visible="true" weight="0.095027626" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49710068" weight="0.03314917" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -407,7 +428,9 @@
     <MESSAGE value="[NetWork_Graph] set the first methods of link and svg class" />
     <MESSAGE value="[NetWork_Graph] add node text" />
     <MESSAGE value="[NetWork_Graph] add arrow links and link Label to graph class" />
-    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] add arrow links and link Label to graph class" />
+    <MESSAGE value="[NetWork_Graph] Organize graph class" />
+    <MESSAGE value="[NetWork_Graph] use symbol type to create private methods in svgRenderer class" />
+    <option name="LAST_COMMIT_MESSAGE" value="[NetWork_Graph] use symbol type to create private methods in svgRenderer class" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/cytoscape/src/util/index.js">
@@ -750,30 +773,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="207">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="506">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        <state relative-caret-position="374">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

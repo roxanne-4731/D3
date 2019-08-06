@@ -23,13 +23,13 @@ const zoomed = Symbol('zoomed');
 
 export class svgRenderer extends Base {
 
-    graphSvg;
-    simulation;
-    nodes;
-    links;
-    nodeLabel;
-    linkLabel;
-    linkPath;
+    #graphSvg;
+    #simulation;
+    #nodes;
+    #links;
+    #nodeLabel;
+    #linkLabel;
+    #linkPath;
 
     constructor(data, height, width) {
         super(data, height, width);
@@ -45,9 +45,9 @@ export class svgRenderer extends Base {
     }
 
     [createNodes](type) {
-        this.nodes = this.graphSvg
+        this.#nodes = this.#graphSvg
             .append("g")
-            .attr("class", "nodes")
+            .attr("class", "#nodes")
             .selectAll(".node")
             .data(this.data.nodes)
             .enter()
@@ -58,7 +58,7 @@ export class svgRenderer extends Base {
     }
 
     [createLinks]() {
-        this.links = this.graphSvg
+        this.#links = this.#graphSvg
             .append("g")
             .attr("class", "links")
             .selectAll(".link")
@@ -72,7 +72,7 @@ export class svgRenderer extends Base {
     }
 
     [createLinkPath]() {
-        this.linkPath = this.graphSvg.selectAll(".edgepath")
+        this.#linkPath = this.#graphSvg.selectAll(".edgepath")
             .data(this.data.links)
             .enter()
             .append('path')
@@ -86,7 +86,7 @@ export class svgRenderer extends Base {
     }
 
     [createLinkLabel]() {
-        this.linkLabel = this.graphSvg.selectAll(".edgelabel")
+        this.#linkLabel = this.#graphSvg.selectAll(".edgelabel")
             .data(this.data.links)
             .enter()
             .append('text')
@@ -98,7 +98,7 @@ export class svgRenderer extends Base {
             .attr('fill', '#aaa')
             .attr('pointer-events', 'none');
 
-        this.linkLabel.append('textPath')
+        this.#linkLabel.append('textPath')
             .attr('xlink:href', function (d, i) {
                 return '#edgepath' + i
             })
@@ -111,7 +111,7 @@ export class svgRenderer extends Base {
     }
 
     [createNodeLabel]() {
-        this.nodeLabel = this.graphSvg
+        this.#nodeLabel = this.#graphSvg
             .selectAll('.nodeGroup')
             .append('text')
             .attr('class', 'text')
@@ -127,9 +127,9 @@ export class svgRenderer extends Base {
     }
 
     [createMarker]() {
-        this.graphSvg.append("svg:defs").selectAll("marker")
-            .data(["end"])      // Different link/path types can be defined here
-            .enter().append("svg:marker")    // This section adds in the arrows
+        this.#graphSvg.append("svg:defs").selectAll("marker")
+            .data(["end"]) 
+            .enter().append("svg:marker")
             .attr("id", String)
             .attr("viewBox", "0 -5 10 10")
             .attr("refX", 15)
@@ -143,7 +143,7 @@ export class svgRenderer extends Base {
     }
 
     [init](selector) {
-        this.graphSvg = d3.select(selector).append('svg')
+        this.#graphSvg = d3.select(selector).append('svg')
             .attr("width", this.width)
             .attr("height", this.height)
             .append("g");
@@ -151,19 +151,19 @@ export class svgRenderer extends Base {
     }
 
     [render](type) {
-        this.simulation.on("tick", () => {
+        this.#simulation.on("tick", () => {
             this[tickedAction](type)
         });
 
         return {
-            graph: new Graph(this.graphSvg),
-            nodes: new Nodes(this.nodes, this.nodeLabel, this.simulation),
-            links: new Links(this.links, this.simulation)
+            graph: new Graph(this.#graphSvg),
+            nodes: new Nodes(this.#nodes, this.#nodeLabel, this.#simulation),
+            links: new Links(this.#links, this.#simulation)
         };
     }
 
     [simulateGraph]() {
-        this.simulation = d3.forceSimulation(this.data.nodes)
+        this.#simulation = d3.forceSimulation(this.data.nodes)
             .force("charge", d3.forceManyBody().strength(-20))
             .force("link", d3.forceLink(this.data.links).id(function (d) {
                 return d.id
@@ -176,7 +176,7 @@ export class svgRenderer extends Base {
     }
 
     [tickedAction](type) {
-        this.links
+        this.#links
             .attr("x1", function (d) {
                 return d.source.x;
             })
@@ -190,7 +190,7 @@ export class svgRenderer extends Base {
                 return d.target.y;
             });
 
-        this.nodes
+        this.#nodes
             .attr(type === 'rect' ? "x" : "cx", function (d) {
                 return d.x;
             })
@@ -198,7 +198,7 @@ export class svgRenderer extends Base {
                 return d.y;
             });
 
-        this.nodeLabel
+        this.#nodeLabel
             .attr("x", function (d) {
                 return type === 'rect' ? d.x + rectWidth / 2 : d.x;
             })
@@ -206,11 +206,11 @@ export class svgRenderer extends Base {
                 return type === 'rect' ? d.y + rectHeight / 2 : d.y;
             });
 
-        this.linkPath.attr('d', function (d) {
+        this.#linkPath.attr('d', function (d) {
             return 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y;
         });
 
-        this.linkLabel.attr('transform', function (d) {
+        this.#linkLabel.attr('transform', function (d) {
             if (d.target.x < d.source.x) {
                 const bbox = this.getBBox();
                 const rx = bbox.x + bbox.width / 2;
@@ -221,19 +221,19 @@ export class svgRenderer extends Base {
             }
         });
 
-        this.graphSvg.call(d3.zoom()
+        this.#graphSvg.call(d3.zoom()
             .scaleExtent([1 / 2, 8])
             .on("zoom", () => this[zoomed]()));
     }
 
     [zoomed]() {
-        this.graphSvg.attr("transform", d3.event.transform);
+        this.#graphSvg.attr("transform", d3.event.transform);
     }
 
     renderCircleGraph(selector, radius) {
         this[init](selector);
         this[createElements]('circle');
-        this.nodes.attr("cx", function (d) {
+        this.#nodes.attr("cx", function (d) {
             return d.x
         })
             .attr("cy", function (d) {
@@ -250,7 +250,7 @@ export class svgRenderer extends Base {
         rectWidth = width;
         rectHeight = height;
 
-        this.nodes.attr('width', width)
+        this.#nodes.attr('width', width)
             .attr('height', height)
             .attr("x", function (d) {
                 return d.x
