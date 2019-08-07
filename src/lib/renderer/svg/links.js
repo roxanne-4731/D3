@@ -2,11 +2,13 @@ import * as d3 from "d3";
 
 export default class Links {
     links;
-    simulation;
+    #linkLabel;
+    #simulation;
 
-    constructor(links, simulation) {
+    constructor(links, linkLabel, simulation) {
         this.links = links;
-        this.simulation = simulation;
+        this.#linkLabel = linkLabel;
+        this.#simulation = simulation;
     }
 
     setClass(className) {
@@ -20,8 +22,16 @@ export default class Links {
     }
 
     setLinkDistance(width) {
-        this.simulation.force("link", d3.forceLink(this.links).id(function (d) {
+        this.#simulation.force("link", d3.forceLink(this.links).id(function (d) {
             return d.id
         }).distance(width))
+    }
+
+    setFontSize(size) {
+        this.#linkLabel.style("font-size", size + 'px')
+    }
+
+    setFontColor(color) {
+        this.#linkLabel.attr("fill", color)
     }
 }

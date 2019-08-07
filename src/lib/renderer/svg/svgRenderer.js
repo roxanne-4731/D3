@@ -1,19 +1,16 @@
 import Base from '../base';
-import Nodes from './nodes';
-import Links from './links';
 import Graph from './svgGraph';
 import * as d3 from "d3";
 import '../../../styles/graphStyle.css';
 
-let rectHeight = 0;
-let rectWidth = 0;
 
 const createElements = Symbol('createElements');
 const createNodes = Symbol('createNodes');
+const createRectNode = Symbol('createRectNode');
+const createCircleNode = Symbol('createCircleNode');
 const createLinks = Symbol('createLinks');
 const createLinkLabel = Symbol('createLinkLabel');
 const createLinkPath = Symbol('createLinkPath');
-const createNodeLabel = Symbol('createNodeLabel');
 const createMarker = Symbol('createMarker');
 const init = Symbol('init');
 const render = Symbol('render');
@@ -35,43 +32,107 @@ export class svgRenderer extends Base {
         super(data, height, width);
     }
 
-    [createElements](type) {
-        this[createNodes](type);
-        this[createNodeLabel]();
+    [createElements]() {
         this[createMarker]();
         this[createLinks]();
-        this[createLinkLabel]();
         this[createLinkPath]();
+        this[createLinkLabel]();
+        this[createNodes]();
     }
 
-    [createNodes](type) {
+    [createNodes]() {
         this.#nodes = this.#graphSvg
-            .append("g")
-            .attr("class", "#nodes")
-            .selectAll(".node")
+            .selectAll('.nodeGroup')
             .data(this.data.nodes)
             .enter()
             .append("g")
-            .attr('class', 'nodeGroup')
-            .append(type)
-            .attr("class", "node")
+            .attr('class', 'nodeGroup');
+    }
+
+    [createRectNode](colors, width, height) {
+
+        this.#nodes
+            .append('rect')
+            .style("fill", function (d, i) {
+                return colors(i);
+            }).attr('width', width)
+            .attr('height', height)
+            .attr("x", function (d) {
+                return d.x
+            })
+            .attr("y", function (d) {
+                return d.y
+            });
+
+        this.#nodes.append("title")
+            .text(function (d) {
+                return d.id;
+            });
+
+        this.#nodes.append("text")
+            .attr("dy", function (d) {
+                    return d.y + (height / 2);
+                }
+            )
+            .attr('dx', function (d) {
+                return d.x + (width / 2);
+            })
+            .text(function (d) {
+                return d.label;
+            })
+            .attr('text-anchor', 'middle');
+    }
+
+    [createCircleNode](colors, radius) {
+
+        this.#nodes
+            .append('circle')
+            .style("fill", function (d, i) {
+                return colors(i);
+            }).attr("cx", function (d) {
+            return d.x;
+        })
+            .attr("cy", function (d) {
+                return d.y;
+            })
+            .attr("r", radius);
+
+        this.#nodes.append("title")
+            .text(function (d) {
+                return d.id;
+            });
+
+        this.#nodes.append("text")
+            .attr("dy", function (d) {
+                    return d.y;
+                }
+            )
+            .attr('dx', function (d) {
+                return d.x;
+            })
+            .text(function (d) {
+                return d.label;
+            })
+            .attr('text-anchor', 'middle');
     }
 
     [createLinks]() {
         this.#links = this.#graphSvg
-            .append("g")
-            .attr("class", "links")
             .selectAll(".link")
             .data(this.data.links)
             .enter()
-            .append("g")
-            .attr('class', 'linkGroup')
             .append("line")
-            .attr("class", "link")
+            .attr('class', 'link')
             .attr("marker-end", "url(#end)");
+
+        this.#links.append("title")
+            .text(function (d) {
+                return d.type;
+            });
     }
 
     [createLinkPath]() {
+
         this.#linkPath = this.#graphSvg.selectAll(".edgepath")
             .data(this.data.links)
             .enter()
@@ -110,72 +171,51 @@ export class svgRenderer extends Base {
             });
     }
 
-    [createNodeLabel]() {
-        this.#nodeLabel = this.#graphSvg
-            .selectAll('.nodeGroup')
-            .append('text')
-            .attr('class', 'text')
-            .attr("x", function (d) {
-                return d.x
-            })
-            .attr("y", function (d) {
-                return d.y
-            })
-            .text(function (d) {
-                return d.label
-            });
-    }
-
     [createMarker]() {
-        this.#graphSvg.append("svg:defs").selectAll("marker")
-            .data(["end"]) 
-            .enter().append("svg:marker")
+        this.#graphSvg.append("defs").selectAll("marker")
+            .data(["end"])
+            .enter().append("marker")
             .attr("id", String)
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 15)
-            .attr("refY", 0.5)
-            .attr("markerWidth", 10)
-            .attr("markerHeight", 10)
+            .attr("refX", 13)
+            .attr("refY", 0)
+            .attr('xoverflow', 'visible')
+            .attr("markerWidth", 13)
+            .attr("markerHeight", 13)
             .attr("orient", "auto")
-            .attr('fill', 'red')
+            .attr('fill', '#999')
             .append("svg:path")
-            .attr("d", "M0,-5L10,0L0,5");
+            .attr("d", "M0,-5L10,0L0,5")
+            .style('stroke', 'none');
     }
 
     [init](selector) {
         this.#graphSvg = d3.select(selector).append('svg')
             .attr("width", this.width)
-            .attr("height", this.height)
-            .append("g");
+            .attr("height", this.height);
         this[simulateGraph]();
     }
 
     [render](type) {
+
         this.#simulation.on("tick", () => {
             this[tickedAction](type)
         });
 
-        return {
-            graph: new Graph(this.#graphSvg),
-            nodes: new Nodes(this.#nodes, this.#nodeLabel, this.#simulation),
-            links: new Links(this.#links, this.#simulation)
-        };
+        return new Graph(this.#graphSvg, this.#simulation, this.#nodes, this.#links, this.#linkLabel);
     }
 
     [simulateGraph]() {
         this.#simulation = d3.forceSimulation(this.data.nodes)
-            .force("charge", d3.forceManyBody().strength(-20))
+            .force("charge", d3.forceManyBody())
             .force("link", d3.forceLink(this.data.links).id(function (d) {
                 return d.id
-            }).distance(400))
-            .force("x", d3.forceX(this.width / 2))
-            .force("y", d3.forceY(this.height / 2))
-            .force("collide", d3.forceCollide())
+            }).distance(200))
             .force('center', d3.forceCenter(this.width / 2, this.height / 2));
 
     }
 
-    [tickedAction](type) {
+    [tickedAction]() {
         this.#links
             .attr("x1", function (d) {
                 return d.source.x;
@@ -191,20 +231,10 @@ export class svgRenderer extends Base {
             });
 
         this.#nodes
-            .attr(type === 'rect' ? "x" : "cx", function (d) {
-                return d.x;
-            })
-            .attr(type === 'rect' ? "y" : "cy", function (d) {
-                return d.y;
+            .attr("transform", function (d) {
+                return "translate(" + d.x + ", " + d.y + ")";
             });
 
-        this.#nodeLabel
-            .attr("x", function (d) {
-                return type === 'rect' ? d.x + rectWidth / 2 : d.x;
-            })
-            .attr("y", function (d) {
-                return type === 'rect' ? d.y + rectHeight / 2 : d.y;
-            });
 
         this.#linkPath.attr('d', function (d) {
             return 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y;
@@ -231,34 +261,19 @@ export class svgRenderer extends Base {
     }
 
     renderCircleGraph(selector, radius) {
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
         this[init](selector);
-        this[createElements]('circle');
-        this.#nodes.attr("cx", function (d) {
-            return d.x
-        })
-            .attr("cy", function (d) {
-                return d.y
-            })
-            .attr("r", radius);
+        this[createElements]();
+        this[createCircleNode](colors, radius);
         return this[render]('circle');
     }
 
     renderRectGraph(selector, height, width) {
-
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
         this[init](selector);
-        this[createElements]('rect');
-        rectWidth = width;
-        rectHeight = height;
-
-        this.#nodes.attr('width', width)
-            .attr('height', height)
-            .attr("x", function (d) {
-                return d.x
-            })
-            .attr("y", function (d) {
-                return d.y
-            });
-
+        this[createElements]();
+        this[createRectNode](colors, width, height);
         return this[render]('rect')
     }
+
 }

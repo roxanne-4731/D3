@@ -814,28 +814,28 @@ export const custom = {
         {id: "cat", group: 1, label: "Cats", level: 2},
         {id: "fox", group: 1, label: "Foxes", level: 2},
         {id: "elk", group: 0, label: "Elk", level: 2},
-        {id: "insect", group: 1, label: "Insects", level: 1},
+        // {id: "insect", group: 1, label: "Insects", level: 1},
         {id: "ant", group: 1, label: "Ants", level: 2},
-        {id: "bee", group: 1, label: "Bees", level: 2},
-        {id: "fish", group: 2, label: "Fish", level: 1},
-        {id: "carp", group: 2, label: "Carp", level: 2},
-        {id: "pike", group: 2, label: "Pikes", level: 2}
+        // {id: "bee", group: 1, label: "Bees", level: 2},
+        // {id: "fish", group: 2, label: "Fish", level: 1},
+        // {id: "carp", group: 2, label: "Carp", level: 2},
+        // {id: "pike", group: 2, label: "Pikes", level: 2}
     ],
     links: [
         {target: "mammal", source: "dog", strength: 0.7, type: "IS_A"},
-        {target: "mammal", source: "cat", strength: 0.7, type: "WORKS_ON"},
-        {target: "mammal", source: "fox", strength: 0.7, type: "IS_A"},
-        {target: "mammal", source: "elk", strength: 0.7, type: "FOUNDED"},
-        {target: "insect", source: "ant", strength: 0.7, type: "FOUNDED"},
-        {target: "insect", source: "bee", strength: 0.7, type: "IS_A"},
-        {target: "fish", source: "carp", strength: 0.7, type: "WORKS_ON"},
-        {target: "fish", source: "pike", strength: 0.7, type: "KNOWS"},
-        {target: "cat", source: "elk", strength: 0.1, type: "KNOWS"},
-        {target: "carp", source: "ant", strength: 0.1, type: "IS_A"},
-        {target: "elk", source: "bee", strength: 0.1, type: "WORKS_ON"},
-        {target: "dog", source: "cat", strength: 0.1, type: "KNOWS"},
-        {target: "fox", source: "ant", strength: 0.1, type: "KNOWS"},
-        {target: "pike", source: "dog", strength: 0.1, type: "FOUNDED"}
+        {target: "dog", source: "cat", strength: 0.7, type: "WORKS_ON"},
+        {target: "ant", source: "fox", strength: 0.7, type: "IS_A"},
+        {target: "fox", source: "elk", strength: 0.7, type: "FOUNDED"},
+        // {target: "insect", source: "ant", strength: 0.7, type: "FOUNDED"},
+        // {target: "insect", source: "bee", strength: 0.7, type: "IS_A"},
+        // {target: "fish", source: "carp", strength: 0.7, type: "WORKS_ON"},
+        // {target: "fish", source: "pike", strength: 0.7, type: "KNOWS"},
+        // {target: "cat", source: "elk", strength: 0.1, type: "KNOWS"},
+        // {target: "carp", source: "ant", strength: 0.1, type: "IS_A"},
+        // {target: "elk", source: "bee", strength: 0.1, type: "WORKS_ON"},
+        // {target: "dog", source: "cat", strength: 0.1, type: "KNOWS"},
+        // {target: "fox", source: "ant", strength: 0.1, type: "KNOWS"},
+        // {target: "pike", source: "dog", strength: 0.1, type: "FOUNDED"}
     ]
 };
 export const custom2 = {
@@ -851,7 +851,7 @@ export const custom2 = {
     ],
     links: [
         {target: "mammal", source: "dog", strength: 0.7, type: "WORKS_ON"},
-        {target: "mammal", source: "cat", strength: 0.7, type: "IS_A"},
+        {target: "dog", source: "cat", strength: 0.7, type: "IS_A"},
 
     ]
 };
