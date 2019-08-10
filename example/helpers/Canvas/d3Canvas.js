@@ -38,15 +38,11 @@ export function canvasBase(data) {
             transform = d3.event.transform;
             simulationUpdate();
         }
-console.log(d3.select(graphCanvas));
         d3.select(graphCanvas)
             .call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end", dragended))
             .call(d3.zoom().scaleExtent([1 / 10, 8]).on("zoom", zoomed));
 
         function dragsubject() {
-            console.log(d3.event);
-            console.log('x:', d3.event.x);
-            console.log('y', d3.event.y);
             let i,
                 x = transform.invertX(d3.event.x),
                 y = transform.invertY(d3.event.y),

@@ -39,13 +39,13 @@ export class svgRenderer extends Base {
         return this[render]('circle');
     }
 
-    renderRectGraph(selector, height, width) {
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
-        this[init](selector);
-        this[createSvgElements]();
-        this[createRectNode](colors, width, height);
-        return this[render]('rect')
-    }
+    // renderRectGraph(selector, height, width) {
+    //     const colors = d3.scaleOrdinal(d3.schemeCategory10);
+    //     this[init](selector);
+    //     this[createSvgElements]();
+    //     this[createRectNode](colors, width, height);
+    //     return this[render]('rect')
+    // }
 
     [init](selector) {
         this.#graphSvg = d3.select(selector).append('svg')
@@ -56,7 +56,7 @@ export class svgRenderer extends Base {
 
     [simulateGraph]() {
         this.#simulation = d3.forceSimulation(this.data.nodes)
-            .force("charge", d3.forceManyBody())
+            .force("charge", d3.forceManyBody().strength(-500))
             .force("link", d3.forceLink(this.data.links).id(function (d) {
                 return d.id
             }).distance(200))
@@ -69,7 +69,6 @@ export class svgRenderer extends Base {
         this[createLinks]();
         this[createLinkPath]();
         this[createLinkLabel]();
-        this[createNodes]();
     }
 
     [createMarker]() {
@@ -189,25 +188,34 @@ export class svgRenderer extends Base {
     }
 
     [createCircleNode](colors, radius) {
+        this[createNodes]();
 
         this.#nodes
             .append('circle')
-            .style("fill", function (d, i) {
-                return colors(i);
-            }).attr("cx", function (d) {
-            return d.x;
-        })
+            .attr("cx", function (d) {
+                return d.x;
+            })
             .attr("cy", function (d) {
                 return d.y;
             })
-            .attr("r", radius);
+            .attr("r", radius)
+            .style("fill", function (d, i) {
+                return colors(i);
+            })
+            .style("stroke", function (d, i) {
+                return colors(i);
+            })
+            .attr('stroke-opacity', 0.7)
+
+            .style("stroke-width", 10);
 
         this.#nodes.append("title")
             .text(function (d) {
                 return d.id;
             });
 
-        this.#nodes.append("text")
+        this.#nodes
+            .append("text")
             .attr("dy", function (d) {
                     return d.y;
                 }
@@ -218,7 +226,13 @@ export class svgRenderer extends Base {
             .text(function (d) {
                 return d.label;
             })
+            .attr('class', 'text')
             .attr('text-anchor', 'middle');
+
+        this.#nodes
+            .select('text')
+            .call(this.crop, this.#nodes.select('circle'));
+
     }
 
     [render](type) {
@@ -275,4 +289,16 @@ export class svgRenderer extends Base {
         this.#graphSvg.attr("transform", d3.event.transform);
     }
 
+    crop(text, circle) {
+        const allTexts = [...text._groups[0]];
+        let circleRadius = circle.node().getBBox().width;
+        [text._groups[0]].forEach((item, index) => {
+            item.forEach((innerItem) => {
+                console.log(innerItem.getComputedTextLength(), circleRadius);
+                if (innerItem.getComputedTextLength() > circleRadius) {
+                    innerItem.innerHTML = innerItem.innerHTML.slice(0, -4) + "...";
+                }
+            })
+        });
+    };
 }

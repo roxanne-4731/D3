@@ -31,7 +31,6 @@ export default class Collapsible extends Component {
             // Restart the force layout.
             let links2 = links.map((item) => {
                 setTimeout(() => {
-                    console.log(1);
                     for (let [key, value] of Object.entries(item.target.data)) {
                         item.target.key = value;
                     }
@@ -45,7 +44,6 @@ export default class Collapsible extends Component {
                 return await Promise.all(
                     links.map((item) => {
                         setTimeout(() => {
-                            console.log(1);
                             for (let [key, value] of Object.entries(item.target.data)) {
                                 item.target.key = value;
                             }
@@ -118,7 +116,6 @@ export default class Collapsible extends Component {
 
         function tick() {
             link.attr("x1", function (d) {
-                console.log('source ::: ', d);
                 return d.source.x;
             })
                 .attr("y1", function (d) {

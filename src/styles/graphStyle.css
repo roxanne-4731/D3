@@ -24,8 +24,12 @@
 /*----------------------------- Nodes Text -----------------------------*/
 
 .text {
-    fill: white;
+    fill: #f6f6f6;
     text-anchor: middle;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-
 /*----------------------------- Nodes Text -----------------------------*/

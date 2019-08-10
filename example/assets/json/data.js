@@ -855,3 +855,25 @@ export const custom2 = {
 
     ]
 };
+
+export const neo4j = {
+    nodes: [
+        {id: "pak", group: 1, label: "لبنیات پاک", level: 1},
+        {id: "1010032", group: 1, label: "1010032", level: 2},
+        {id: "ali", group: 1, label: "علیرضا سجادی", level: 2},
+        {id: "mali", group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2},
+        {id: "bonyad", group: 1, label: "بنیاد مستضعفان", level: 2},
+        {id: "sarmaye", group: 1, label: "سرمایه گذاری", level: 2},
+        {id: "sina", group: 1, label: "مالی و سرمایه گذاری سینا", level: 2},
+        {id: "mathar", group: 1, label: "شرکت مادر تخصصی", level: 2},
+    ],
+    links: [
+        {target: "1010032", source: "pak", strength: 0.7, type: "introduction"},
+        {target: "ali", source: "pak", strength: 0.7, type: "CEO"},
+        {target: "mali", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "bonyad", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "sarmaye", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "sina", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "mathar", source: "pak", strength: 0.7, type: "BOARD_Me"},
+    ]
+}
