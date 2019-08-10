@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import D3ExampleOne from '../components/D3Examples/D3TooltipHtml';
-import D3ExampleTwo from '../components/D3Examples/D3Canvas';
-import D3ExampleThree from '../components/D3Examples/D3Subset';
-import D3ExampleFoure from '../components/D3Examples/D3TooltipSvg';
-import D3ExampleFive from '../components/D3Examples/D3Zoom&Drag';
-import D3ExampleSix from '../components/D3Examples/D3Collapsible';
-import GraphClass from '../components/D3Examples/GraphClass';
+import D3ExampleOne from './D3Examples/D3TooltipHtml';
+import D3ExampleTwo from './D3Examples/D3Canvas';
+import D3ExampleThree from './D3Examples/D3Subset';
+import D3ExampleFoure from './D3Examples/D3TooltipSvg';
+import D3ExampleFive from './D3Examples/D3Zoom&Drag';
+import D3ExampleSix from './D3Examples/D3Collapsible';
+import GraphClass from './D3Examples/GraphClass';
 
 
 import '../assets/styles/D3Base.css';

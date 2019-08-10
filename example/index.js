@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/styles/index.css';
-import AppRouter from '../example/router/AppRouter';
 import * as serviceWorker from './serviceWorker';
+import D3 from './components/D3';
 
-ReactDOM.render(<AppRouter/>, document.getElementById('root'));
+
+ReactDOM.render(<D3/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

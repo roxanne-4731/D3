@@ -4,7 +4,7 @@ import * as d3 from "d3";
 import '../../../styles/graphStyle.css';
 
 
-const createElements = Symbol('createElements');
+const createSvgElements = Symbol('createSvgElements');
 const createNodes = Symbol('createNodes');
 const createRectNode = Symbol('createRectNode');
 const createCircleNode = Symbol('createCircleNode');
@@ -24,7 +24,6 @@ export class svgRenderer extends Base {
     #simulation;
     #nodes;
     #links;
-    #nodeLabel;
     #linkLabel;
     #linkPath;
 
@@ -32,12 +31,118 @@ export class svgRenderer extends Base {
         super(data, height, width);
     }
 
-    [createElements]() {
+    renderCircleGraph(selector, radius) {
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
+        this[init](selector);
+        this[createSvgElements]();
+        this[createCircleNode](colors, radius);
+        return this[render]('circle');
+    }
+
+    renderRectGraph(selector, height, width) {
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
+        this[init](selector);
+        this[createSvgElements]();
+        this[createRectNode](colors, width, height);
+        return this[render]('rect')
+    }
+
+    [init](selector) {
+        this.#graphSvg = d3.select(selector).append('svg')
+            .attr("width", this.width)
+            .attr("height", this.height);
+        this[simulateGraph]();
+    }
+
+    [simulateGraph]() {
+        this.#simulation = d3.forceSimulation(this.data.nodes)
+            .force("charge", d3.forceManyBody())
+            .force("link", d3.forceLink(this.data.links).id(function (d) {
+                return d.id
+            }).distance(200))
+            .force('center', d3.forceCenter(this.width / 2, this.height / 2));
+
+    }
+
+    [createSvgElements]() {
         this[createMarker]();
         this[createLinks]();
         this[createLinkPath]();
         this[createLinkLabel]();
         this[createNodes]();
+    }
+
+    [createMarker]() {
+        this.#graphSvg.append("defs").selectAll("marker")
+            .data(["end"])
+            .enter().append("marker")
+            .attr("id", String)
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 13)
+            .attr("refY", 0)
+            .attr('xoverflow', 'visible')
+            .attr("markerWidth", 13)
+            .attr("markerHeight", 13)
+            .attr("orient", "auto")
+            .attr('fill', '#999')
+            .append("svg:path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .style('stroke', 'none');
+    }
+
+    [createLinks]() {
+        this.#links = this.#graphSvg
+            .selectAll(".link")
+            .data(this.data.links)
+            .enter()
+            .append("line")
+            .attr('class', 'link')
+            .attr("marker-end", "url(#end)");
+
+        this.#links.append("title")
+            .text(function (d) {
+                return d.type;
+            });
+    }
+
+    [createLinkPath]() {
+
+        this.#linkPath = this.#graphSvg.selectAll(".edgepath")
+            .data(this.data.links)
+            .enter()
+            .append('path')
+            .attr('class', 'edgepath')
+            .attr('id', function (d, i) {
+                return 'edgepath' + i
+            })
+            .attr('fill-opacity', 0)
+            .attr('stroke-opacity', 0)
+            .attr('pointer-events', 'none');
+    }
+
+    [createLinkLabel]() {
+        this.#linkLabel = this.#graphSvg.selectAll(".edgelabel")
+            .data(this.data.links)
+            .enter()
+            .append('text')
+            .attr('class', 'edgelabel')
+            .attr('id', function (d, i) {
+                return 'edgelabel' + i
+            })
+            .attr('font-size', 10)
+            .attr('fill', '#aaa')
+            .attr('pointer-events', 'none');
+
+        this.#linkLabel.append('textPath')
+            .attr('xlink:href', function (d, i) {
+                return '#edgepath' + i
+            })
+            .attr("text-anchor", "middle")
+            .attr("pointer-events", "none")
+            .attr("startOffset", "50%")
+            .text(function (d) {
+                return d.type
+            });
     }
 
     [createNodes]() {
@@ -116,86 +221,6 @@ export class svgRenderer extends Base {
             .attr('text-anchor', 'middle');
     }
 
-    [createLinks]() {
-        this.#links = this.#graphSvg
-            .selectAll(".link")
-            .data(this.data.links)
-            .enter()
-            .append("line")
-            .attr('class', 'link')
-            .attr("marker-end", "url(#end)");
-
-        this.#links.append("title")
-            .text(function (d) {
-                return d.type;
-            });
-    }
-
-    [createLinkPath]() {
-
-        this.#linkPath = this.#graphSvg.selectAll(".edgepath")
-            .data(this.data.links)
-            .enter()
-            .append('path')
-            .attr('class', 'edgepath')
-            .attr('id', function (d, i) {
-                return 'edgepath' + i
-            })
-            .attr('fill-opacity', 0)
-            .attr('stroke-opacity', 0)
-            .attr('pointer-events', 'none');
-    }
-
-    [createLinkLabel]() {
-        this.#linkLabel = this.#graphSvg.selectAll(".edgelabel")
-            .data(this.data.links)
-            .enter()
-            .append('text')
-            .attr('class', 'edgelabel')
-            .attr('id', function (d, i) {
-                return 'edgelabel' + i
-            })
-            .attr('font-size', 10)
-            .attr('fill', '#aaa')
-            .attr('pointer-events', 'none');
-
-        this.#linkLabel.append('textPath')
-            .attr('xlink:href', function (d, i) {
-                return '#edgepath' + i
-            })
-            .attr("text-anchor", "middle")
-            .attr("pointer-events", "none")
-            .attr("startOffset", "50%")
-            .text(function (d) {
-                return d.type
-            });
-    }
-
-    [createMarker]() {
-        this.#graphSvg.append("defs").selectAll("marker")
-            .data(["end"])
-            .enter().append("marker")
-            .attr("id", String)
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 13)
-            .attr("refY", 0)
-            .attr('xoverflow', 'visible')
-            .attr("markerWidth", 13)
-            .attr("markerHeight", 13)
-            .attr("orient", "auto")
-            .attr('fill', '#999')
-            .append("svg:path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .style('stroke', 'none');
-    }
-
-    [init](selector) {
-        this.#graphSvg = d3.select(selector).append('svg')
-            .attr("width", this.width)
-            .attr("height", this.height);
-        this[simulateGraph]();
-    }
-
     [render](type) {
 
         this.#simulation.on("tick", () => {
@@ -203,16 +228,6 @@ export class svgRenderer extends Base {
         });
 
         return new Graph(this.#graphSvg, this.#simulation, this.#nodes, this.#links, this.#linkLabel);
-    }
-
-    [simulateGraph]() {
-        this.#simulation = d3.forceSimulation(this.data.nodes)
-            .force("charge", d3.forceManyBody())
-            .force("link", d3.forceLink(this.data.links).id(function (d) {
-                return d.id
-            }).distance(200))
-            .force('center', d3.forceCenter(this.width / 2, this.height / 2));
-
     }
 
     [tickedAction]() {
@@ -258,22 +273,6 @@ export class svgRenderer extends Base {
 
     [zoomed]() {
         this.#graphSvg.attr("transform", d3.event.transform);
-    }
-
-    renderCircleGraph(selector, radius) {
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
-        this[init](selector);
-        this[createElements]();
-        this[createCircleNode](colors, radius);
-        return this[render]('circle');
-    }
-
-    renderRectGraph(selector, height, width) {
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
-        this[init](selector);
-        this[createElements]();
-        this[createRectNode](colors, width, height);
-        return this[render]('rect')
     }
 
 }
