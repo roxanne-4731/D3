@@ -53,9 +53,8 @@ export default class Nodes {
         })
     }
 
-    setTextAttr(styles) {
+    setTextAttrStyle(styles) {
         styles.forEach((style) => {
-
             this.#nodeLabel.attr(style.name, style.value)
         })
     }
@@ -70,5 +69,12 @@ export default class Nodes {
 
     setClassName(className) {
         this.nodes.attr("class", className);
+    }
+
+    fillRandomColor() {
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
+        this.nodes.style("fill", function (d, i) {
+            return colors(i);
+        })
     }
 }

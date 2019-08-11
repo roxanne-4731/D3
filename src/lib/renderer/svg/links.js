@@ -27,6 +27,12 @@ export default class Links {
         }).distance(width))
     }
 
+    setTextAttrStyle(styles) {
+        styles.forEach((style) => {
+            this.#linkLabel.attr(style.name, style.value)
+        })
+    }
+
     setFontSize(size) {
         this.#linkLabel.style("font-size", size + 'px')
     }

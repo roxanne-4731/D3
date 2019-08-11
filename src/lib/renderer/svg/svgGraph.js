@@ -3,18 +3,20 @@ import Links from "./links";
 
 export default class SvgGraph {
 
-    svgGraph;
+    graph;
     nodes;
     links;
 
-    constructor(svgGraph, simulation, nodes, links, linkLabel) {
-        this.svgGraph = svgGraph;
+    constructor(graph, simulation, nodes, links, linkLabel) {
+        this.graph = graph;
         this.nodes = new Nodes(nodes, simulation);
         this.links = new Links(links, linkLabel, simulation)
     }
 
-    setStyle() {
-        console.log(this.svgGraph);
+    setStyle(styles) {
+        styles.forEach((style, index) => {
+            this.graph.attr(style.name, style.value)
+        })
     }
 
 
