@@ -1,7 +1,6 @@
 import Base from '../base';
 import Graph from './svgGraph';
 import * as d3 from "d3";
-import '../../../styles/graphStyle.css';
 
 
 const createSvgElements = Symbol('createSvgElements');
@@ -12,6 +11,7 @@ const createLinks = Symbol('createLinks');
 const createLinkLabel = Symbol('createLinkLabel');
 const createLinkPath = Symbol('createLinkPath');
 const createMarker = Symbol('createMarker');
+const cropText = Symbol('cropText');
 const init = Symbol('init');
 const render = Symbol('render');
 const simulateGraph = Symbol('simulateGraph');
@@ -32,20 +32,18 @@ export class svgRenderer extends Base {
     }
 
     renderCircleGraph(selector, radius) {
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
         this[init](selector);
         this[createSvgElements]();
-        this[createCircleNode](colors, radius);
+        this[createCircleNode](radius);
         return this[render]('circle');
     }
 
-    // renderRectGraph(selector, height, width) {
-    //     const colors = d3.scaleOrdinal(d3.schemeCategory10);
-    //     this[init](selector);
-    //     this[createSvgElements]();
-    //     this[createRectNode](colors, width, height);
-    //     return this[render]('rect')
-    // }
+    renderRectGraph(selector, height, width) {
+        this[init](selector);
+        this[createSvgElements]();
+        this[createRectNode](width, height);
+        return this[render]('rect')
+    }
 
     [init](selector) {
         this.#graphSvg = d3.select(selector).append('svg')
@@ -79,14 +77,14 @@ export class svgRenderer extends Base {
             .attr("viewBox", "0 -5 10 10")
             .attr("refX", 13)
             .attr("refY", 0)
-            .attr('xoverflow', 'visible')
+            // .attr('xoverflow', 'visible')
             .attr("markerWidth", 13)
             .attr("markerHeight", 13)
             .attr("orient", "auto")
-            .attr('fill', '#999')
+            // .attr('fill', '#999')
             .append("svg:path")
             .attr("d", "M0,-5L10,0L0,5")
-            .style('stroke', 'none');
+        // .style('stroke', 'none');
     }
 
     [createLinks]() {
@@ -95,7 +93,7 @@ export class svgRenderer extends Base {
             .data(this.data.links)
             .enter()
             .append("line")
-            .attr('class', 'link')
+            .attr('stroke', '#000')
             .attr("marker-end", "url(#end)");
 
         this.#links.append("title")
@@ -120,6 +118,7 @@ export class svgRenderer extends Base {
     }
 
     [createLinkLabel]() {
+
         this.#linkLabel = this.#graphSvg.selectAll(".edgelabel")
             .data(this.data.links)
             .enter()
@@ -127,17 +126,12 @@ export class svgRenderer extends Base {
             .attr('class', 'edgelabel')
             .attr('id', function (d, i) {
                 return 'edgelabel' + i
-            })
-            .attr('font-size', 10)
-            .attr('fill', '#aaa')
-            .attr('pointer-events', 'none');
+            });
 
         this.#linkLabel.append('textPath')
             .attr('xlink:href', function (d, i) {
                 return '#edgepath' + i
             })
-            .attr("text-anchor", "middle")
-            .attr("pointer-events", "none")
             .attr("startOffset", "50%")
             .text(function (d) {
                 return d.type
@@ -153,13 +147,11 @@ export class svgRenderer extends Base {
             .attr('class', 'nodeGroup');
     }
 
-    [createRectNode](colors, width, height) {
+    [createRectNode](width, height) {
 
         this.#nodes
             .append('rect')
-            .style("fill", function (d, i) {
-                return colors(i);
-            }).attr('width', width)
+            .attr('width', width)
             .attr('height', height)
             .attr("x", function (d) {
                 return d.x
@@ -183,11 +175,11 @@ export class svgRenderer extends Base {
             })
             .text(function (d) {
                 return d.label;
-            })
-            .attr('text-anchor', 'middle');
+            });
+
     }
 
-    [createCircleNode](colors, radius) {
+    [createCircleNode](radius) {
         this[createNodes]();
 
         this.#nodes
@@ -198,16 +190,7 @@ export class svgRenderer extends Base {
             .attr("cy", function (d) {
                 return d.y;
             })
-            .attr("r", radius)
-            .style("fill", function (d, i) {
-                return colors(i);
-            })
-            .style("stroke", function (d, i) {
-                return colors(i);
-            })
-            .attr('stroke-opacity', 0.7)
-
-            .style("stroke-width", 10);
+            .attr("r", radius);
 
         this.#nodes.append("title")
             .text(function (d) {
@@ -225,14 +208,11 @@ export class svgRenderer extends Base {
             })
             .text(function (d) {
                 return d.label;
-            })
-            .attr('class', 'text')
-            .attr('text-anchor', 'middle');
+            });
 
         this.#nodes
             .select('text')
-            .call(this.crop, this.#nodes.select('circle'));
-
+            .call(this[cropText], this.#nodes.select('circle'));
     }
 
     [render](type) {
@@ -289,14 +269,14 @@ export class svgRenderer extends Base {
         this.#graphSvg.attr("transform", d3.event.transform);
     }
 
-    crop(text, circle) {
-        const allTexts = [...text._groups[0]];
+    [cropText](text, circle) {
         let circleRadius = circle.node().getBBox().width;
         [text._groups[0]].forEach((item, index) => {
             item.forEach((innerItem) => {
-                console.log(innerItem.getComputedTextLength(), circleRadius);
-                if (innerItem.getComputedTextLength() > circleRadius) {
-                    innerItem.innerHTML = innerItem.innerHTML.slice(0, -4) + "...";
+                const sub = innerItem.getComputedTextLength() - circleRadius;
+                if (sub > 0) {
+                    const charCount = Math.ceil(sub / 15) + 5;
+                    innerItem.innerHTML = innerItem.innerHTML.slice(0, charCount * -1) + "...";
                 }
             })
         });
