@@ -1,1 +1,2 @@
-export {svgRenderer}  from './svgRenderer';
+export {svgGraphRenderer}  from './svgGraphRenderer';
+export {SvgTree} from './svgTreeRenderer';

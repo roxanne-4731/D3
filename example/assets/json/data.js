@@ -1,112 +1,211 @@
 import * as functions from '../../helpers/functions';
 
-export const links = [
-    {source: 27, target: 28},
-    {source: 28, target: 27},
-    {source: 28, target: 12},
-    {source: 47, target: 46},
-    {source: 41, target: 37},
-    {source: 41, target: 25},
-    {source: 27, target: 11},
-    {source: 38, target: 2},
-    {source: 28, target: 41},
-    {source: 28, target: 0},
-    {source: 13, target: 21},
-    {source: 46, target: 25},
-    {source: 39, target: 41},
-    {source: 21, target: 1},
-    {source: 1, target: 28},
-    {source: 14, target: 16},
-    {source: 28, target: 1},
-    {source: 28, target: 23},
-    {source: 21, target: 20},
-    {source: 32, target: 5},
-    {source: 28, target: 21},
-    {source: 38, target: 43},
-    {source: 2, target: 35},
-    {source: 31, target: 38},
-    {source: 22, target: 45},
-    {source: 37, target: 41},
-    {source: 20, target: 21},
-    {source: 0, target: 11},
-    {source: 13, target: 2},
-    {source: 25, target: 46},
-    {source: 1, target: 21},
-    {source: 27, target: 0},
-    {source: 23, target: 28},
-    {source: 21, target: 13},
-    {source: 1, target: 41},
-    {source: 25, target: 13},
-    {source: 12, target: 35},
-    {source: 35, target: 12},
-    {source: 12, target: 28},
-    {source: 31, target: 43},
-    {source: 0, target: 27},
-    {source: 16, target: 14},
-    {source: 0, target: 28},
-    {source: 43, target: 38},
-    {source: 41, target: 12},
-    {source: 0, target: 12},
-    {source: 35, target: 2},
-    {source: 34, target: 48},
-    {source: 11, target: 27},
-    {source: 25, target: 2},
-    {source: 20, target: 2},
-    {source: 28, target: 2},
-    {source: 38, target: 31},
-    {source: 45, target: 22},
-    {source: 19, target: 42},
-    {source: 2, target: 38},
-    {source: 13, target: 25},
-    {source: 41, target: 39},
-    {source: 2, target: 13},
-    {source: 41, target: 1},
-    {source: 3, target: 19},
-    {source: 46, target: 47},
-    {source: 25, target: 41},
-    {source: 2, target: 31},
-    {source: 21, target: 28},
-    {source: 11, target: 29},
-    {source: 12, target: 41},
-    {source: 48, target: 34},
-    {source: 37, target: 25},
-    {source: 43, target: 31},
-    {source: 29, target: 11},
-    {source: 31, target: 2},
-    {source: 2, target: 28},
-    {source: 28, target: 20},
-    {source: 5, target: 32},
-    {source: 2, target: 20},
-    {source: 27, target: 41},
-    {source: 41, target: 27},
-    {source: 2, target: 25},
-    {source: 42, target: 19},
-    {source: 20, target: 28},
-    {source: 12, target: 0},
-    {source: 41, target: 28},
-    {source: 25, target: 37},
-    {source: 19, target: 3},
-    {source: 11, target: 0}
-];
+export const custom = {
+    nodes: [
+        {
+            id: "mammal", group: 0, label: "Mammals", level: 1, children: [
+                {id: "a", group: 2, label: "a", level: 4},
+                {id: "b", group: 2, label: "b", level: 5},
+                {id: "c", group: 2, label: "c", level: 4}
+            ]
+        },
+        {id: "dog", group: 1, label: "Dogs", level: 2},
+        {id: "cat", group: 1, label: "Cats", level: 2},
+        {id: "fox", group: 1, label: "Foxes", level: 2},
+        {id: "elk", group: 0, label: "Elk", level: 2},
+        // {id: "insect", group: 1, label: "Insects", level: 1},
+        {id: "ant", group: 1, label: "Ants", level: 2},
+        // {id: "bee", group: 1, label: "Bees", level: 2},
+        // {id: "fish", group: 2, label: "Fish", level: 1},
+        // {id: "carp", group: 2, label: "Carp", level: 2},
+        // {id: "pike", group: 2, label: "Pikes", level: 2}
+    ],
+    links: [
+        {target: "mammal", source: "dog", strength: 0.7, type: "IS_A"},
+        {target: "dog", source: "cat", strength: 0.7, type: "WORKS_ON"},
+        {target: "ant", source: "fox", strength: 0.7, type: "IS_A"},
+        {target: "fox", source: "elk", strength: 0.7, type: "FOUNDED"},
+        // {target: "insect", source: "ant", strength: 0.7, type: "FOUNDED"},
+        // {target: "insect", source: "bee", strength: 0.7, type: "IS_A"},
+        // {target: "fish", source: "carp", strength: 0.7, type: "WORKS_ON"},
+        // {target: "fish", source: "pike", strength: 0.7, type: "KNOWS"},
+        // {target: "cat", source: "elk", strength: 0.1, type: "KNOWS"},
+        // {target: "carp", source: "ant", strength: 0.1, type: "IS_A"},
+        // {target: "elk", source: "bee", strength: 0.1, type: "WORKS_ON"},
+        // {target: "dog", source: "cat", strength: 0.1, type: "KNOWS"},
+        // {target: "fox", source: "ant", strength: 0.1, type: "KNOWS"},
+        // {target: "pike", source: "dog", strength: 0.1, type: "FOUNDED"}
+    ]
+};
 
-const nodes = [...Array(1000000).keys()].map((el) => {
-    return {
-        id: functions.makeid(4),
-        group: functions.makeid(1)
-    }
-});
+export const neo4j = {
+    nodes: [
+        {id: "pak", group: 1, label: "لبنیات پاک", level: 1},
+        {id: "1010032", group: 1, label: "1010032", level: 2},
+        {id: "ali", group: 1, label: "علیرضا سجادی", level: 2},
+        {id: "mali", group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2},
+        {id: "bonyad", group: 1, label: "بنیاد مستضعفان", level: 2},
+        {id: "sarmaye", group: 1, label: "سرمایه گذاری", level: 2},
+        {id: "sina", group: 1, label: "مالی و سرمایه گذاری سینا", level: 2},
+        {id: "mathar", group: 1, label: "شرکت مادر تخصصی", level: 2},
+    ],
+    links: [
+        {target: "1010032", source: "pak", strength: 0.7, type: "introduction"},
+        {target: "ali", source: "pak", strength: 0.7, type: "CEO"},
+        {target: "mali", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "bonyad", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "sarmaye", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "sina", source: "pak", strength: 0.7, type: "BOARD_Me"},
+        {target: "mathar", source: "pak", strength: 0.7, type: "BOARD_Me"},
+    ]
+};
 
-export const miserables =
-    {
-        "nodes": functions.removeDuplicated(nodes, 'id'),
-        "links": [...Array(1000).keys()].map((el) => {
-            return {
-                source: functions.makeid(4),
-                target: functions.makeid(4),
-                value: functions.makeid(1)
-            }
-        })
-    };
+export const neo4jTree = {
+    id: "pak",
+    group: 1,
+    label: "لبنیات پاک",
+    level: 1,
+    children: [
+        {
+            id: "1010032",
+            group: 1,
+            label: "1010032",
+            level: 2,
+            children: [
+                {id: 'a', group: 3, label: 'a', level: 3},
+                {id: 'b', group: 3, label: 'b', level: 3}
+            ]
+        },
+        {
+            id: "ali", group: 1, label: "علیرضا سجادی", level: 2,
+            children: [
+                {
+                    id: 'a', group: 3, label: 'a', level: 3,
+                    children: [
+                        {id: 'a', group: 3, label: 'a', level: 4},
+                        {id: 'b', group: 3, label: 'b', level: 4}
+                    ]
+                },
+                {id: 'b', group: 3, label: 'b', level: 3},
+                {id: 'c', group: 3, label: 'c', level: 3},
+                {
+                    id: 'd', group: 3, label: 'd', level: 3, children: [
+                        {id: 'a', group: 3, label: 'a', level: 4},
+                        {
+                            id: 'b', group: 3, label: 'b', level: 4, children: [
+                                {id: 'a', group: 3, label: 'a', level: 5},
+                                {id: 'b', group: 3, label: 'b', level: 5}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "mali", group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2
+        },
+        {
+            id: "bonyad", group: 1, label: "بنیاد مستضعفان", level: 2
+        },
+        {
+            id: "sarmaye", group: 1, label: "سرمایه گذاری", level: 2
+        },
+        {id: "sina", group: 1, label: "مالی و سرمایه گذاری سینا", level: 2},
+        {id: "mathar", group: 1, label: "شرکت مادر تخصصی", level: 2}
+    ]
+};
+export const neo4jTest = {
+    "label": "pak",
+    "id": 'pak',
+    level: 4,
+    group: 2,
+    "children": [
+        {
+            "label": "ali",
+            "id": 'ali',
+            level: 4,
+            group: 2,
+            "children": [
+                {
+                    "label": "tahmasb",
+                    "id": 'tahmasb',
+                    level: 4,
+                    group: 2,
+                    "children": [
+                        {id: 'a', group: 3, label: 'a', level: 5},
+                        {id: 'b', group: 3, label: 'b', level: 5},
+                        {id: 'c', group: 3, label: 'c', level: 5},
+                        {id: 'd', group: 3, label: 'd', level: 5},
+                        {id: 'e', group: 3, label: 'e', level: 5}
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "homayoon",
+            "id": 'homayoon',
+            level: 4,
+            group: 2,
+            "children": [
+                {id: 'a', group: 3, label: 'a', level: 5},
+                {id: 'b', group: 3, label: 'b', level: 5},
+                {id: 'c', group: 3, label: 'c', level: 5},
+                {id: 'd', group: 3, label: 'd', level: 5},
+                {id: 'e', group: 3, label: 'e', level: 5}
+            ]
+        },
+        {
+            "label": "1010032",
+            "id": '1010032',
+            level: 4,
+            group: 2,
+            "children": [
+                {id: 'a', group: 3, label: 'a', level: 5},
+                {id: 'b', group: 3, label: 'b', level: 5},
+                {id: 'c', group: 3, label: 'c', level: 5},
+                {id: 'd', group: 3, label: 'd', level: 5},
+                {id: 'e', group: 3, label: 'e', level: 5}
+            ]
+        }
+    ]
+};
+
+export const collapse = {
+    "name": "flare",
+    "children": [
+        {
+            "name": "analytics",
+            "children": [
+                {
+                    "name": "cluster",
+                    "children": [
+                        {"name": "AgglomerativeCluster", "size": 3938},
+                        {"name": "CommunityStructure", "size": 3812},
+                        {"name": "HierarchicalCluster", "size": 6714},
+                        {"name": "MergeEdge", "size": 743}
+                    ]
+                },
+                {
+                    "name": "graph",
+                    "children": [
+                        {"name": "BetweennessCentrality", "size": 3534},
+                        {"name": "LinkDistance", "size": 5731},
+                        {"name": "MaxFlowMinCut", "size": 7840},
+                        {"name": "ShortestPaths", "size": 5914},
+                        {"name": "SpanningTree", "size": 3416}
+                    ]
+                },
+                {
+                    "name": "optimization",
+                    "children": [
+                        {"name": "AspectRatioBanker", "size": 7074}
+                    ]
+                }
+            ]
+        }
+    ]
+};
+
 
 export const data = {
     "nodes": [{"id": 78}, {
@@ -802,78 +901,3 @@ export const data = {
         "target": 660
     }, {"source": 820, "target": 932}, {"source": 726, "target": 573}]
 };
-
-export const custom = {
-    nodes: [
-        {id: "mammal", group: 0, label: "Mammals", level: 1, children: [
-                {id: "a", group: 2, label: "a", level: 4},
-                {id: "b", group: 2, label: "b", level: 5},
-                {id: "c", group: 2, label: "c", level: 4}
-            ]},
-        {id: "dog", group: 1, label: "Dogs", level: 2},
-        {id: "cat", group: 1, label: "Cats", level: 2},
-        {id: "fox", group: 1, label: "Foxes", level: 2},
-        {id: "elk", group: 0, label: "Elk", level: 2},
-        // {id: "insect", group: 1, label: "Insects", level: 1},
-        {id: "ant", group: 1, label: "Ants", level: 2},
-        // {id: "bee", group: 1, label: "Bees", level: 2},
-        // {id: "fish", group: 2, label: "Fish", level: 1},
-        // {id: "carp", group: 2, label: "Carp", level: 2},
-        // {id: "pike", group: 2, label: "Pikes", level: 2}
-    ],
-    links: [
-        {target: "mammal", source: "dog", strength: 0.7, type: "IS_A"},
-        {target: "dog", source: "cat", strength: 0.7, type: "WORKS_ON"},
-        {target: "ant", source: "fox", strength: 0.7, type: "IS_A"},
-        {target: "fox", source: "elk", strength: 0.7, type: "FOUNDED"},
-        // {target: "insect", source: "ant", strength: 0.7, type: "FOUNDED"},
-        // {target: "insect", source: "bee", strength: 0.7, type: "IS_A"},
-        // {target: "fish", source: "carp", strength: 0.7, type: "WORKS_ON"},
-        // {target: "fish", source: "pike", strength: 0.7, type: "KNOWS"},
-        // {target: "cat", source: "elk", strength: 0.1, type: "KNOWS"},
-        // {target: "carp", source: "ant", strength: 0.1, type: "IS_A"},
-        // {target: "elk", source: "bee", strength: 0.1, type: "WORKS_ON"},
-        // {target: "dog", source: "cat", strength: 0.1, type: "KNOWS"},
-        // {target: "fox", source: "ant", strength: 0.1, type: "KNOWS"},
-        // {target: "pike", source: "dog", strength: 0.1, type: "FOUNDED"}
-    ]
-};
-export const custom2 = {
-    nodes: [
-        {id: "mammal", group: 0, label: "Mammals", level: 1, children: [
-                {id: "a", group: 2, label: "a", level: 4},
-                {id: "b", group: 2, label: "b", level: 5},
-                {id: "c", group: 2, label: "c", level: 4}
-            ]},
-        {id: "dog", group: 1, label: "Dogs", level: 2},
-        {id: "cat", group: 1, label: "Cats", level: 2},
-
-    ],
-    links: [
-        {target: "mammal", source: "dog", strength: 0.7, type: "WORKS_ON"},
-        {target: "dog", source: "cat", strength: 0.7, type: "IS_A"},
-
-    ]
-};
-
-export const neo4j = {
-    nodes: [
-        {id: "pak", group: 1, label: "لبنیات پاک", level: 1},
-        {id: "1010032", group: 1, label: "1010032", level: 2},
-        {id: "ali", group: 1, label: "علیرضا سجادی", level: 2},
-        {id: "mali", group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2},
-        {id: "bonyad", group: 1, label: "بنیاد مستضعفان", level: 2},
-        {id: "sarmaye", group: 1, label: "سرمایه گذاری", level: 2},
-        {id: "sina", group: 1, label: "مالی و سرمایه گذاری سینا", level: 2},
-        {id: "mathar", group: 1, label: "شرکت مادر تخصصی", level: 2},
-    ],
-    links: [
-        {target: "1010032", source: "pak", strength: 0.7, type: "introduction"},
-        {target: "ali", source: "pak", strength: 0.7, type: "CEO"},
-        {target: "mali", source: "pak", strength: 0.7, type: "BOARD_Me"},
-        {target: "bonyad", source: "pak", strength: 0.7, type: "BOARD_Me"},
-        {target: "sarmaye", source: "pak", strength: 0.7, type: "BOARD_Me"},
-        {target: "sina", source: "pak", strength: 0.7, type: "BOARD_Me"},
-        {target: "mathar", source: "pak", strength: 0.7, type: "BOARD_Me"},
-    ]
-}

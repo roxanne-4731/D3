@@ -7,9 +7,9 @@ export default class SvgGraph {
     nodes;
     links;
 
-    constructor(graph, simulation, nodes, links, linkLabel) {
+    constructor(graph, simulation, nodes, links, linkLabel, data) {
         this.graph = graph;
-        this.nodes = new Nodes(nodes, simulation);
+        this.nodes = new Nodes(nodes, simulation, graph, data);
         this.links = new Links(links, linkLabel, simulation)
     }
 

@@ -70,18 +70,8 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="layout-style">
-                <div className="buttons-style">
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(1)}>Custom Library</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(2)}>Canvas</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(3)}>Show Subset</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(4)}>Tooltip using svg</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(5)}>Zoom and Drag</button>
-                    <button className="buttonStyle" onClick={() => this.renderExampleOne(6)}>Collapsible</button>
-                </div>
-                <div className="container-style">
-                    {this.showRender(this.state.number)}
-                </div>
+            <div>
+                <GraphClass/>
             </div>
         );
     }
