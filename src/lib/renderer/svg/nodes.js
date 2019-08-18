@@ -1,30 +1,37 @@
 import * as d3 from "d3";
-import {neo4jTest, neo4jTree} from "../../../../example/assets/json/data";
-import {SvgTree} from './svgTreeRenderer';
-import * as Graph from "../../../index";
 
 
 const dragStart = Symbol('dragStart');
 const drag = Symbol('drag');
 const dragEnd = Symbol('dragEnd');
+const nodesDragAction = Symbol('nodesDragAction');
+// const setStyle = Symbol('setStyle');
 
 export default class Nodes {
     nodes;
     #nodeLabel;
     #simulation;
-    graph;
-    #data;
-    #nodeChildren;
+    #graph;
+    styles = {
+        nodes: [],
+        nodeLabel: [],
+        fontSize: 10,
+        fontColor: '#000',
+    };
 
-    constructor(nodes, simulation, graph, data) {
-        this.graph = graph;
-        this.nodes = nodes;
+    constructor(simulation, graph) {
+        this.#graph = graph;
+        this.nodes = graph
+            .selectAll('.nodeGroup');
         this.#simulation = simulation;
         this.#nodeLabel = this.nodes.select('text');
-        this.#data = data;
+        this[nodesDragAction]();
+    }
+
+    [nodesDragAction]() {
         this.nodes.call(d3.drag()
             .on('start', (d) => this[dragStart](d), {capture: true})
-            .on('drag', (d) => this[drag](d)), {capture: true})
+            .on('drag', (d) => this[drag](d)), {capture: true});
         // .on('end', (d) => this[dragEnd](d)));
     }
 
@@ -46,49 +53,52 @@ export default class Nodes {
     //     d.fy = null;
     // };
 
+    setNodes(graph) {
+        this.nodes = graph
+            .selectAll('.nodeGroup');
+        this.#nodeLabel = this.nodes.select('text');
+        this[nodesDragAction]();
+        this.setStyle();
+    }
 
     onClick(listener) {
-
         this.nodes.on('click', listener)
     }
+
 
     onMouseOver(listener) {
         this.nodes.on('mouseover', listener)
     }
 
-    setStyle(styles) {
-        styles.forEach((style, index) => {
-            this.nodes.attr(style.name, style.value)
-        })
+    setStyle() {
+        const {nodes, nodeLabel, fontSize, fontColor} = this.styles;
+        nodes.forEach((nodeStyle, index) => {
+            this.nodes.attr(nodeStyle.name, nodeStyle.value)
+        });
+
+        nodeLabel.forEach((nodeLabelStyle) => {
+            this.#nodeLabel.attr(nodeLabelStyle.name, nodeLabelStyle.value)
+        });
+
+        this.#nodeLabel.style("font-size", fontSize + 'px');
+
+        this.#nodeLabel.attr('fill', fontColor);
+
+        this.setNodeColorBaseOnLevels();
     }
 
-    setTextAttrStyle(styles) {
-        styles.forEach((style) => {
-            this.#nodeLabel.attr(style.name, style.value)
-        })
-    }
-
-    setFontSize(size) {
-        this.#nodeLabel.style("font-size", size + 'px')
-    }
-
-    setFontColor(color) {
-        this.#nodeLabel.attr('fill', color);
-    }
-
-    setClassName(className) {
-        this.nodes.attr("class", className);
-    }
-
-    fillRandomColor() {
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
-        this.nodes.style("fill", function (d, i) {
-            return colors(i);
-        })
-    }
+    // setClassName(className) {
+    //     this.nodes.attr("class", className);
+    // }
+    //
+    // fillRandomColor() {
+    //     const colors = d3.scaleOrdinal(d3.schemeCategory10);
+    //     this.nodes.style("fill", function (d, i) {
+    //         return colors(i);
+    //     })
+    // }
 
     setNodeColorBaseOnLevels() {
-
         const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
         this.nodes
@@ -101,32 +111,6 @@ export default class Nodes {
                 return colors(d.data.level);
             })
             .attr('stroke-opacity', 0.7);
-    }
-
-    findNodeChildren(nodeId, data) {
-        if (data.children) {
-            if (data.id === nodeId) {
-                this.#nodeChildren = data;
-            }
-            data.children.forEach((child) => {
-                this.findNodeChildren(nodeId, child);
-            });
-        }
-    }
-
-    mapNodeChildrenToData(data) {
-        if (this.#nodeChildren) {
-            const {children, id, group, label, level} = this.#nodeChildren,
-                {nodes, links} = data;
-            const source = {id, group, label, level};
-
-            children.forEach((item) => {
-                const node = {id: item.id, group: item.group, label: item.label, level: item.level},
-                    link = {target: node, source, strength: 0.7, type: "introduction"};
-                nodes.push(node);
-                links.push(link);
-            });
-        }
     }
 
 }

@@ -28,7 +28,8 @@ div.tooltip {
     display: flex;
     justify-content: space-around;
 }
-
-.textNodes {
-    fill: greenyellow;
-}
+/*.nodeClass {*/
+    /*‍stroke-opacity: 0.7;*/
+    /*stroke-width: 10;*/
+    /*cursor: pointer;*/
+/*}*/

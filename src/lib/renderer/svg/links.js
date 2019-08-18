@@ -4,40 +4,55 @@ export default class Links {
     links;
     #linkLabel;
     #simulation;
+    styles = {
+        links: [],
+        linkLabel: [],
+        fontSize: 10,
+        fontColor: '#000',
+    };
 
-    constructor(links, linkLabel, simulation) {
-        this.links = links;
-        this.#linkLabel = linkLabel;
+    constructor(graph, simulation) {
+
+        this.links = graph
+            .selectAll(".link");
+
+        this.#linkLabel = graph.selectAll(".edgelabel");
         this.#simulation = simulation;
+        this.setStyle();
+    }
+
+    setLinks(graph) {
+        this.links = graph
+            .selectAll('.link');
+        this.#linkLabel = graph.selectAll(".edgelabel");
+        this.setStyle();
     }
 
     setClass(className) {
         this.links.attr("class", className);
     }
 
-    setStyle(styles) {
-        styles.forEach((style, index) => {
-            this.links.attr(style.name, style.value)
-        })
+
+    setStyle() {
+        const {links, linkLabel, fontSize, fontColor} = this.styles;
+        links.forEach((linkStyle, index) => {
+            this.links.attr(linkStyle.name, linkStyle.value)
+        });
+
+        linkLabel.forEach((linkLabelStyle) => {
+            this.#linkLabel.attr(linkLabelStyle.name, linkLabelStyle.value)
+        });
+
+        this.#linkLabel.style("font-size", fontSize + 'px');
+
+        this.#linkLabel.attr("fill", fontColor)
+
+
     }
 
     setLinkDistance(width) {
         this.#simulation.force("link", d3.forceLink(this.links).id(function (d) {
             return d.id
         }).distance(width))
-    }
-
-    setTextAttrStyle(styles) {
-        styles.forEach((style) => {
-            this.#linkLabel.attr(style.name, style.value)
-        })
-    }
-
-    setFontSize(size) {
-        this.#linkLabel.style("font-size", size + 'px')
-    }
-
-    setFontColor(color) {
-        this.#linkLabel.attr("fill", color)
     }
 }

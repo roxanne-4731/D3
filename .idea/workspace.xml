@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9465b732-3ef9-415f-b957-d502aa078e87" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js" afterDir="false" />
+    <list default="true" id="9465b732-3ef9-415f-b957-d502aa078e87" name="Default Changelist" comment="[NetWork_Graph] fix styles of nodes and links on every change of data in onClick of nodes - set all the styles of nodes such as nodesStyle, nodeLabelStyle, ... also links style into one object - change the function name of svgGraphRenderer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/assets/json/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/json/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/styles/D3Six.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/styles/D3Six.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/styles/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/components/D3.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/assets/styles/D3Two.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/styles/D3Two.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/links.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,23 +26,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="318" column="14" lean-forward="true" selection-start-line="318" selection-start-column="14" selection-end-line="318" selection-end-column="14" />
+            <state relative-caret-position="253">
+              <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1566034164402" expanded="true" signature="9006:9207" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,32 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="90" column="15" lean-forward="true" selection-start-line="90" selection-start-column="15" selection-end-line="90" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/components/D3.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="927">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="249">
+              <caret line="156" column="4" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -90,11 +47,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="51" column="28" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="28" />
+            <state relative-caret-position="321">
+              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <marker date="1566114182085" expanded="true" signature="1758:2122" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1633">
+              <caret line="71" column="29" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -102,8 +68,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/links.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="44" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="44" />
+            <state relative-caret-position="-391">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,39 +90,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clicl</find>
-      <find>fla</find>
-      <find>render</find>
-      <find>renderCircleGraph</find>
-      <find>d3</find>
-      <find>return</find>
-      <find>createRectNode</find>
-      <find>createLink</find>
-      <find>createLinkP</find>
-      <find>ticke</find>
-      <find>link</find>
-      <find>createLinkPat</find>
-      <find>createLinkLab</find>
-      <find>new</find>
-      <find>create</find>
-      <find>createSvgElements</find>
-      <find>createLinks</find>
-      <find>linkPath</find>
+      <find>nodeChildren</find>
+      <find>set</find>
+      <find>nodeStyle</find>
+      <find>con</find>
       <find>console</find>
-      <find>linkLabel</find>
-      <find>linkLave</find>
-      <find>createLinkLabel</find>
-      <find>update</find>
+      <find>nodesDragAction</find>
+      <find>setStyle</find>
+      <find>styles</find>
+      <find>d3</find>
+      <find>links</find>
+      <find>updata</find>
+      <find>white</find>
+      <find>this</find>
+      <find>S</find>
+      <find>createLinks</find>
+      <find>createSvgElements</find>
+      <find>style</find>
+      <find>dista</find>
+      <find>link</find>
+      <find>createMa</find>
+      <find>updateSimulation</find>
+      <find>type</find>
+      <find>textPath</find>
+      <find>zomm</find>
+      <find>init</find>
+      <find>da</find>
+      <find>create</find>
       <find>createNodes</find>
-      <find>\</find>
       <find>createCircleNode</find>
-      <find>nodeEnter</find>
-      <find>title</find>
-      <find>createCir</find>
-      <find>cropText</find>
+      <find>updatingNodes</find>
     </findStrings>
     <replaceStrings>
-      <replace>this.radius</replace>
       <replace>_</replace>
       <replace>#transform</replace>
       <replace>this.d3</replace>
@@ -168,6 +145,13 @@
       <replace>this.link</replace>
       <replace>this.svg</replace>
       <replace>this.force</replace>
+      <replace>9000</replace>
+      <replace>4000</replace>
+      <replace>level: 2</replace>
+      <replace>flattenData</replace>
+      <replace>#graph</replace>
+      <replace>updatingNodes</replace>
+      <replace>updatingLinkPath</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -200,21 +184,21 @@
         <option value="$PROJECT_DIR$/example/index.js" />
         <option value="$PROJECT_DIR$/example/helpers/Canvas/d3Canvas.js" />
         <option value="$PROJECT_DIR$/example/components/D3Examples/D3TooltipHtml.js" />
-        <option value="$PROJECT_DIR$/src/lib/renderer/svg/links.js" />
         <option value="$PROJECT_DIR$/src/styles/graphStyle.css" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgRenderer.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/index.js" />
-        <option value="$PROJECT_DIR$/example/assets/styles/D3Two.css" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/example/assets/styles/index.css" />
-        <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" />
-        <option value="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" />
-        <option value="$PROJECT_DIR$/example/assets/json/data.js" />
-        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
         <option value="$PROJECT_DIR$/example/assets/styles/D3Six.css" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js" />
         <option value="$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js" />
         <option value="$PROJECT_DIR$/example/components/D3.js" />
+        <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" />
+        <option value="$PROJECT_DIR$/example/assets/styles/D3Two.css" />
+        <option value="$PROJECT_DIR$/src/lib/renderer/svg/links.js" />
+        <option value="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" />
+        <option value="$PROJECT_DIR$/src/lib/renderer/svg/nodes.js" />
+        <option value="$PROJECT_DIR$/example/assets/json/data.js" />
         <option value="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" />
       </list>
     </option>
@@ -236,24 +220,6 @@
             <path>
               <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
               <item name="chartjs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chartjs" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="D3Examples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chartjs" type="b2602c69:ProjectViewProjectNode" />
@@ -347,7 +313,7 @@
       <workItem from="1565154258440" duration="19372000" />
       <workItem from="1565411746932" duration="37746000" />
       <workItem from="1565672421228" duration="40801000" />
-      <workItem from="1566016838871" duration="13324000" />
+      <workItem from="1566016838871" duration="39658000" />
     </task>
     <task id="LOCAL-00001" summary="[NetWork_Graph] add idea to gitIgnore">
       <created>1563971819820</created>
@@ -496,11 +462,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565509495018</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="[NetWork_Graph] add collapse action to svgGraphRenderer - add svgTreeRenderer class for creating collapsible graph (Temporary) - add new data for testing collapse action - change to structure of json for building graph">
+      <created>1566034454635</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1566034454635</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241379000" />
+    <option name="totallyTimeSpent" value="267713000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -513,6 +486,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.57650274" visible="true" weight="0.18713759" />
       <window_info id="Structure" order="1" sideWeight="0.309613" side_tool="true" weight="0.24786325" />
@@ -526,9 +500,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973643" weight="0.48176795" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" visible="true" weight="0.5723757" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49973643" visible="true" weight="0.03314917" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028993" side_tool="true" weight="0.4364641" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49710068" weight="0.63093925" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49710068" weight="0.41436464" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -769,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Two.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -810,43 +777,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Six.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/links.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="44" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -868,40 +804,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="90" column="15" lean-forward="true" selection-start-line="90" selection-start-column="15" selection-end-line="90" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="575">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Six.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/styles/D3Two.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/links.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/nodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+          <folding>
+            <marker date="1566114182085" expanded="true" signature="1758:2122" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/json/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1633">
+          <caret line="71" column="29" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="156" column="4" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="318" column="14" lean-forward="true" selection-start-line="318" selection-start-column="14" selection-end-line="318" selection-end-column="14" />
+        <state relative-caret-position="253">
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <marker date="1566034164402" expanded="true" signature="9006:9207" ph="..." />
           </folding>
         </state>
       </provider>

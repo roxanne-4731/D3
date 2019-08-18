@@ -4,9 +4,9 @@ export const custom = {
     nodes: [
         {
             id: "mammal", group: 0, label: "Mammals", level: 1, children: [
-                {id: "a", group: 2, label: "a", level: 4},
+                {id: "a", group: 2, label: "a", level: 2},
                 {id: "b", group: 2, label: "b", level: 5},
-                {id: "c", group: 2, label: "c", level: 4}
+                {id: "c", group: 2, label: "c", level: 2}
             ]
         },
         {id: "dog", group: 1, label: "Dogs", level: 2},
@@ -65,36 +65,92 @@ export const neo4jTree = {
     group: 1,
     label: "لبنیات پاک",
     level: 1,
+    size: 16000,
     children: [
         {
             id: "1010032",
+            type: 'BOARD_Me',
+            size: 9000,
             group: 1,
             label: "1010032",
             level: 2,
+
             children: [
-                {id: 'a', group: 3, label: 'a', level: 3},
-                {id: 'b', group: 3, label: 'b', level: 3}
+                {
+                    id: 'a',
+                    type: 'BOARD_Me',
+                    group: 3, label: 'one', level: 3, size: 4000
+                },
+                {
+                    id: 'b',
+                    type: 'BOARD_Me',
+                    group: 3, label: 'two', level: 3, size: 4000
+                }
             ]
         },
         {
-            id: "ali", group: 1, label: "علیرضا سجادی", level: 2,
+            size: 9000,
+            id: "ali",
+            type: 'BOARD_Me',
+            group: 1, label: "علیرضا سجادی", level: 2,
+
             children: [
                 {
-                    id: 'a', group: 3, label: 'a', level: 3,
+                    size: 4000,
+                    id: 'c',
+                    type: 'BOARD_Me',
+                    group: 3, label: 'three', level: 3,
+
                     children: [
-                        {id: 'a', group: 3, label: 'a', level: 4},
-                        {id: 'b', group: 3, label: 'b', level: 4}
+                        {
+                            id: 'd',
+                            type: 'introduction',
+                            group: 3, label: 'four', level: 4, size: 1000
+                        },
+                        {
+                            id: 'e',
+                            type: 'introduction',
+                            group: 3, label: 'five', level: 4, size: 1000
+                        }
                     ]
                 },
-                {id: 'b', group: 3, label: 'b', level: 3},
-                {id: 'c', group: 3, label: 'c', level: 3},
                 {
-                    id: 'd', group: 3, label: 'd', level: 3, children: [
-                        {id: 'a', group: 3, label: 'a', level: 4},
+                    id: 'f',
+                    type: 'introduction',
+                    group: 3, label: 'six', level: 3, size: 4000,
+                },
+                {
+                    id: 'g',
+                    type: 'introduction',
+                    group: 3, label: 'seven', level: 3, size: 4000,
+                },
+                {
+                    size: 4000,
+
+                    id: 'h',
+                    type: 'introduction',
+                    group: 3, label: 'eight', level: 3,
+                    children: [
                         {
-                            id: 'b', group: 3, label: 'b', level: 4, children: [
-                                {id: 'a', group: 3, label: 'a', level: 5},
-                                {id: 'b', group: 3, label: 'b', level: 5}
+                            id: 'i',
+                            type: 'introduction',
+                            group: 3, label: 'nine', level: 4
+                        },
+                        {
+                            id: 'j',
+                            type: 'introduction',
+                            group: 3, label: 'ten', level: 4,
+                            children: [
+                                {
+                                    id: 'k',
+                                    type: 'introduction',
+                                    group: 3, label: 'eleven', level: 5, size: 1000
+                                },
+                                {
+                                    id: 'l',
+                                    type: 'CEO',
+                                    group: 3, label: 'Twelve', level: 5, size: 1000
+                                }
                             ]
                         }
                     ]
@@ -102,41 +158,42 @@ export const neo4jTree = {
             ]
         },
         {
-            id: "mali", group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2
-        },
-        {
-            id: "bonyad", group: 1, label: "بنیاد مستضعفان", level: 2
-        },
-        {
-            id: "sarmaye", group: 1, label: "سرمایه گذاری", level: 2
-        },
-        {id: "sina", group: 1, label: "مالی و سرمایه گذاری سینا", level: 2},
-        {id: "mathar", group: 1, label: "شرکت مادر تخصصی", level: 2}
+            size: 9000,
+            id: "mali",
+            type: 'CEO',
+            group: 1, label: "گروه توسعه مالی مهر آیندگان", level: 2
+
+        }
     ]
 };
 export const neo4jTest = {
     "label": "pak",
     "id": 'pak',
-    level: 4,
+    level: 1,
     group: 2,
+    size: 4000,
     "children": [
         {
             "label": "ali",
+            size: 9000,
             "id": 'ali',
-            level: 4,
+            level: 2,
             group: 2,
             "children": [
                 {
                     "label": "tahmasb",
                     "id": 'tahmasb',
-                    level: 4,
+                    level: 2,
                     group: 2,
+                    size: 4000,
                     "children": [
-                        {id: 'a', group: 3, label: 'a', level: 5},
-                        {id: 'b', group: 3, label: 'b', level: 5},
-                        {id: 'c', group: 3, label: 'c', level: 5},
-                        {id: 'd', group: 3, label: 'd', level: 5},
-                        {id: 'e', group: 3, label: 'e', level: 5}
+                        {
+                            id: 'a', group: 3, label: 'a', level: 5, size: 1000,
+                        },
+                        {id: 'b', group: 3, label: 'b', level: 5, size: 1000},
+                        {id: 'c', group: 3, label: 'c', level: 5, size: 1000},
+                        {id: 'd', group: 3, label: 'd', level: 5, size: 1000},
+                        {id: 'e', group: 3, label: 'e', level: 5, size: 1000}
                     ]
                 }
             ]
@@ -144,27 +201,29 @@ export const neo4jTest = {
         {
             "label": "homayoon",
             "id": 'homayoon',
-            level: 4,
+            size: 9000,
+            level: 2,
             group: 2,
             "children": [
-                {id: 'a', group: 3, label: 'a', level: 5},
-                {id: 'b', group: 3, label: 'b', level: 5},
-                {id: 'c', group: 3, label: 'c', level: 5},
-                {id: 'd', group: 3, label: 'd', level: 5},
-                {id: 'e', group: 3, label: 'e', level: 5}
+                {id: 'a', group: 3, label: 'a', level: 5, size: 4000},
+                {id: 'b', group: 3, label: 'b', level: 5, size: 4000},
+                {id: 'c', group: 3, label: 'c', level: 5, size: 4000},
+                {id: 'd', group: 3, label: 'd', level: 5, size: 4000},
+                {id: 'e', group: 3, label: 'e', level: 5, size: 4000}
             ]
         },
         {
             "label": "1010032",
             "id": '1010032',
-            level: 4,
+            size: 9000,
+            level: 2,
             group: 2,
             "children": [
-                {id: 'a', group: 3, label: 'a', level: 5},
-                {id: 'b', group: 3, label: 'b', level: 5},
-                {id: 'c', group: 3, label: 'c', level: 5},
-                {id: 'd', group: 3, label: 'd', level: 5},
-                {id: 'e', group: 3, label: 'e', level: 5}
+                {id: 'a', group: 3, label: 'a', level: 5, size: 4000},
+                {id: 'b', group: 3, label: 'b', level: 5, size: 4000},
+                {id: 'c', group: 3, label: 'c', level: 5, size: 4000},
+                {id: 'd', group: 3, label: 'd', level: 5, size: 4000},
+                {id: 'e', group: 3, label: 'e', level: 5, size: 4000}
             ]
         }
     ]
