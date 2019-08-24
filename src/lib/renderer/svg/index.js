@@ -1,2 +1,2 @@
 export {svgGraphRenderer}  from './svgGraphRenderer';
-export {SvgTree} from './svgTreeRenderer';
+export {CollapseEvent} from './collapseEventOnNodes';

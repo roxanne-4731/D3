@@ -31,13 +31,24 @@ export default class exampleTwo extends Component {
                 {name: 'text-anchor', value: 'middle'}
             ],
             fontSize: 10,
-            fontColor: '#ff6f00'
+            fontColor: '#ffc600'
         };
 
-        let graphTest = new Graph.svgGraphRenderer(neo4jTree, 504, 940);
-        let getGraph = graphTest.renderCircleGraph('.second-child', 8);
+        // the graph the feature of collapsing
 
-        const {nodes, links} = getGraph;
+        // let graphCollapse = new Graph.CollapseEvent(neo4jTree, 504, 940);
+        // let getGraph = graphCollapse.renderCircleGraph('.second-child', 8);
+
+        // a normal graph
+        let normalGraph = new Graph.svgGraphRenderer(neo4jTree, 504, 940);
+        let contentOfGraph = normalGraph.renderCircleGraphWithCollapseEvent('.first-child');
+
+
+        // let tree = new Graph.SvgTree(neo4jTree);
+        // tree.renderTree('.second-child');
+
+
+        const {nodes, links} = contentOfGraph;
 
         nodes.styles = nodesStyle;
         nodes.setStyle();
@@ -48,7 +59,10 @@ export default class exampleTwo extends Component {
 
     render() {
         return (
-            <div className="second-child"/>
+            <div>
+                <div className="first-child"/>
+                <div className="second-child"/>
+            </div>
         );
     }
 

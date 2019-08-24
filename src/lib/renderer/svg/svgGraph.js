@@ -6,13 +6,14 @@ export default class SvgGraph {
     graph;
     nodes;
     links;
-    simulation;
+    #root;
+    event;
 
-    constructor(graph, simulation) {
+    constructor(graph, simulation, root) {
         this.graph = graph;
-        this.simulation = simulation;
+        this.#root = root;
         this.nodes = new Nodes(simulation, graph);
-        this.links = new Links(graph, simulation)
+        this.links = new Links(graph, simulation);
     }
 
     setStyle(styles) {

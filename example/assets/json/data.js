@@ -70,14 +70,14 @@ export const neo4jTree = {
         {
             id: "1010032",
             type: 'BOARD_Me',
+
             size: 9000,
             group: 1,
             label: "1010032",
             level: 2,
 
             children: [
-                {
-                    id: 'a',
+                { id: 'a',
                     type: 'BOARD_Me',
                     group: 3, label: 'one', level: 3, size: 4000
                 },
