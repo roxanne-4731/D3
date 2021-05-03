@@ -67,7 +67,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "commit": "cz"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -86,7 +87,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@types/d3": "^5.7.2"
+    "@metahub/cz-conventional-commit": "^5.0.0",
+    "@types/d3": "^5.7.2",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -140,5 +144,15 @@
     "plugins": [
       "@babel/plugin-proposal-class-properties"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "cz-conventional-commit": {
+        "maxSubjectLength": 72,
+        "bodyLineLength": 100,
+        "emoji": true
+      }
+    }
   }
 }

@@ -2,74 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9465b732-3ef9-415f-b957-d502aa078e87" name="Default Changelist" comment="[NetWork_Graph] add new method to svgGraphRenderer to render a new graph that has a ability to collapse event on nodes - delete svgTreeRenderer class">
-      <change afterPath="$PROJECT_DIR$/src/lib/renderer/svg/collapseEventOnNodes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/json/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/json/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3Examples/D3Collapsible.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/components/D3Examples/GraphClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/renderer/svg/svgGraphRenderer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/renderer/svg/svgTreeRenderer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/node_modules/" />
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/collapseEventOnNodes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="53" column="78" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/svgGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/components/D3Examples/GraphClass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="42" column="74" lean-forward="true" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/renderer/svg/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -140,6 +80,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -192,6 +140,7 @@
     <option name="width" value="1910" />
     <option name="height" value="1048" />
   </component>
+  <component name="ProjectId" id="1s0yB9ZO5RabfoZxqOL4PkeJzwm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -256,12 +205,21 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -272,18 +230,7 @@
       <recent name="$PROJECT_DIR$/example" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -318,6 +265,7 @@
       <workItem from="1566016838871" duration="43313000" />
       <workItem from="1566189794738" duration="12665000" />
       <workItem from="1566620817215" duration="2902000" />
+      <workItem from="1620023668747" duration="1728000" />
     </task>
     <task id="LOCAL-00001" summary="[NetWork_Graph] add idea to gitIgnore">
       <created>1563971819820</created>
@@ -521,29 +469,14 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -562,6 +495,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[NetWork_Graph] set colors of nodes and links when clicking on nodes to show the subsets" />
